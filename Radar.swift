@@ -1,16 +1,19 @@
 //
-//  main.swift
-//  
+//  Radar.swift
+//
+//  An interface to precipitation radars by api.met.no / YR.no
+//  see: http://api.met.no/weatherapi/radar/1.5/documentation
 //
 //  Created by Håvard Gulldahl on 06.08.2016.
+//  Copyright © 2016 Håvard Gulldahl. All rights reserved.
 //
-//
+//  License: GPL3
 
 import Foundation
 
 func getRadarURL (site: String, animated: Bool = true, size: String = "normal") -> NSURL {
-    // Documentation: http://aa004xmu0m4dtdqty.api.met.no/weatherapi/radar/1.5/documentation
-    // example url https://aa004xmu0m4dtdqty.api.met.no/weatherapi/radar/1.5/?radarsite=nordland_troms;type=reflectivity;content=animation;size=large"
+    // Documentation: http://api.met.no/weatherapi/radar/1.5/documentation
+    // example url https://api.met.no/weatherapi/radar/1.5/?radarsite=nordland_troms;type=reflectivity;content=animation;size=large"
     // valid sites: see bottom of this file
     // valid sizes: "large", "normal"
     let api_version = "1.5"
@@ -18,7 +21,7 @@ func getRadarURL (site: String, animated: Bool = true, size: String = "normal") 
     if !animated {
         content = "image"
     }
-    let url_base = "https://aa004xmu0m4dtdqty.api.met.no/weatherapi/radar/"
+    let url_base = "https://api.met.no/weatherapi/radar/"
     return NSURL(string: "\(url_base)\(api_version)/?radarsite=\(site);type=reflectivity;content=\(content);size=\(size)")!
 }
 
