@@ -1,0 +1,60 @@
+<?xml version="1.0" standalone="yes"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" creator="KML2GPX.COM" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+    <metadata>
+        <name><![CDATA[test_regions.kml]]></name>
+        <desc><![CDATA[Converted from a KML file KML2GPX.COM]]></desc>
+                </metadata>
+
+                                                                                
+                <wpt lat="58.15991190421818" lon="8.018206393557435">
+                                                            <ele>0</ele>
+                    <name><![CDATA[Kristiansand]]></name>
+                    <cmt><![CDATA[Waypoint no: 1]]></cmt>
+                    <desc><![CDATA[This is waypoint no: 1]]></desc>
+                </wpt>
+                                                                                                                            
+                <wpt lat="59.91386880319418" lon="10.75224539688175">
+                                                            <ele>0</ele>
+                    <name><![CDATA[oslo]]></name>
+                    <cmt><![CDATA[Waypoint no: 2]]></cmt>
+                    <desc><![CDATA[This is waypoint no: 2]]></desc>
+                </wpt>
+                                                                                                                            
+                <wpt lat="60.39125016833788" lon="5.32219948887729">
+                                                            <ele>0</ele>
+                    <name><![CDATA[bergen]]></name>
+                    <cmt><![CDATA[Waypoint no: 3]]></cmt>
+                    <desc><![CDATA[This is waypoint no: 3]]></desc>
+                </wpt>
+                                                                                                                            
+                <wpt lat="69.64683957859485" lon="18.95107009009404">
+                                                            <ele>0</ele>
+                    <name><![CDATA[tromsø]]></name>
+                    <cmt><![CDATA[Waypoint no: 4]]></cmt>
+                    <desc><![CDATA[This is waypoint no: 4]]></desc>
+                </wpt>
+                                                                                                                            
+                <wpt lat="69.72148866098993" lon="29.26685830195889">
+                                                            <ele>0</ele>
+                    <name><![CDATA[kirkenes]]></name>
+                    <cmt><![CDATA[Waypoint no: 5]]></cmt>
+                    <desc><![CDATA[This is waypoint no: 5]]></desc>
+                </wpt>
+                                                                                                                            
+                <wpt lat="64.01510509527627" lon="11.49549719271982">
+                                                            <ele>0</ele>
+                    <name><![CDATA[steinkjer]]></name>
+                    <cmt><![CDATA[Waypoint no: 6]]></cmt>
+                    <desc><![CDATA[This is waypoint no: 6]]></desc>
+                </wpt>
+                                                                                                                            
+                <wpt lat="67.28035510703735" lon="14.4049155228312">
+                                                            <ele>0</ele>
+                    <name><![CDATA[bodø]]></name>
+                    <cmt><![CDATA[Waypoint no: 7]]></cmt>
+                    <desc><![CDATA[This is waypoint no: 7]]></desc>
+                </wpt>
+                                                            
+                    
+    
+</gpx>
