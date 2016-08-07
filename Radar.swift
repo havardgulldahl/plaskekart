@@ -65,3 +65,25 @@ let common_radars: [String: NSURL] = ["Finnmark": radar_finnmark,
                                       "Østlandet": radar_southeast_norway,
                                       "Norge": radar_norway
 ]
+
+func getMapForArea(area: String) -> NSURL {
+    // pass in CLPlacemark.administrativeArea and get back the url to the best map
+    var map: NSURL
+    switch area.localizedLowercaseString {
+    case "finnmark":
+        map = radar_finnmark
+    case "troms", "nordland":
+        map = radar_nordland_troms
+    case "nord-trøndelag", "sør-trøndelag":
+        map = radar_trlagnordland
+    case "møre og romsdal", "sogn og fjordane", "hordaland", "rogaland":
+        map = radar_western_norway
+    case "vest-agder", "aust-agder", "telemark":
+        map = radar_southwest_norway
+    case "vestfold", "buskerud", "oppland", "hedmark", "oslo", "akershus", "østfold":
+        map = radar_southeast_norway
+    default:
+        map = radar_norway
+    }
+    return map
+}
