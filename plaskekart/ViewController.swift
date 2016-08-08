@@ -39,10 +39,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         // set up location manager (GPS) stuff
         self.locationManager = CLLocationManager()
         self.locationManager.requestWhenInUseAuthorization() // TODO: ask nicely first
-        self.locationManager.delegate = self
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
         
         if CLLocationManager.locationServicesEnabled() {
+            self.locationManager.delegate = self
+            self.locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
             self.locationManager.startUpdatingLocation()
         }
         
