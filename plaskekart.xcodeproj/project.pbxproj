@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C2536D631D57C4C900ECF9FF /* NowCast.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2536D601D57C4C900ECF9FF /* NowCast.swift */; };
 		C2536D641D57C4C900ECF9FF /* test_regions.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C2536D611D57C4C900ECF9FF /* test_regions.gpx */; };
-		C2536D651D57C4C900ECF9FF /* Radar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2536D621D57C4C900ECF9FF /* Radar.swift */; };
 		C2536D671D57C4EB00ECF9FF /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = C2536D661D57C4EB00ECF9FF /* README.md */; };
 		C2536D691D57C4FC00ECF9FF /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2536D681D57C4FC00ECF9FF /* Kingfisher.framework */; };
+		C2536D6C1D57CA6F00ECF9FF /* NowCast.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2536D6A1D57CA6F00ECF9FF /* NowCast.swift */; };
+		C2536D6D1D57CA6F00ECF9FF /* Radar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2536D6B1D57CA6F00ECF9FF /* Radar.swift */; };
 		C26467A01D5601D400AF8A98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C264679F1D5601D400AF8A98 /* AppDelegate.swift */; };
 		C26467A21D5601D400AF8A98 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26467A11D5601D400AF8A98 /* ViewController.swift */; };
 		C26467A51D5601D400AF8A98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C26467A31D5601D400AF8A98 /* Main.storyboard */; };
@@ -32,11 +32,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C2536D601D57C4C900ECF9FF /* NowCast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowCast.swift; sourceTree = SOURCE_ROOT; };
 		C2536D611D57C4C900ECF9FF /* test_regions.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = test_regions.gpx; sourceTree = SOURCE_ROOT; };
-		C2536D621D57C4C900ECF9FF /* Radar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Radar.swift; sourceTree = SOURCE_ROOT; };
 		C2536D661D57C4EB00ECF9FF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C2536D681D57C4FC00ECF9FF /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
+		C2536D6A1D57CA6F00ECF9FF /* NowCast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowCast.swift; sourceTree = "<group>"; };
+		C2536D6B1D57CA6F00ECF9FF /* Radar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Radar.swift; sourceTree = "<group>"; };
 		C264679C1D5601D400AF8A98 /* plaskekart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = plaskekart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C264679F1D5601D400AF8A98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C26467A11D5601D400AF8A98 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -95,15 +95,15 @@
 		C264679E1D5601D400AF8A98 /* plaskekart */ = {
 			isa = PBXGroup;
 			children = (
+				C2536D6A1D57CA6F00ECF9FF /* NowCast.swift */,
+				C2536D6B1D57CA6F00ECF9FF /* Radar.swift */,
 				C264679F1D5601D400AF8A98 /* AppDelegate.swift */,
 				C26467A11D5601D400AF8A98 /* ViewController.swift */,
 				C26467A31D5601D400AF8A98 /* Main.storyboard */,
 				C26467A61D5601D400AF8A98 /* Assets.xcassets */,
 				C26467A81D5601D400AF8A98 /* LaunchScreen.storyboard */,
 				C26467AB1D5601D400AF8A98 /* Info.plist */,
-				C2536D601D57C4C900ECF9FF /* NowCast.swift */,
 				C2536D611D57C4C900ECF9FF /* test_regions.gpx */,
-				C2536D621D57C4C900ECF9FF /* Radar.swift */,
 			);
 			path = plaskekart;
 			sourceTree = "<group>";
@@ -168,6 +168,7 @@
 				TargetAttributes = {
 					C264679B1D5601D400AF8A98 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = WQVXYDWP9W;
 					};
 					C26467AF1D5601D500AF8A98 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -238,9 +239,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C26467A21D5601D400AF8A98 /* ViewController.swift in Sources */,
-				C2536D631D57C4C900ECF9FF /* NowCast.swift in Sources */,
 				C2536D671D57C4EB00ECF9FF /* README.md in Sources */,
-				C2536D651D57C4C900ECF9FF /* Radar.swift in Sources */,
+				C2536D6C1D57CA6F00ECF9FF /* NowCast.swift in Sources */,
+				C2536D6D1D57CA6F00ECF9FF /* Radar.swift in Sources */,
 				C26467A01D5601D400AF8A98 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -373,15 +374,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",
 					"/Users/n18040/Documents/Utvikling/plaskekart/Carthage/Build/**",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = plaskekart/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = no.lurtgjort.plaskekart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -389,15 +394,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",
 					"/Users/n18040/Documents/Utvikling/plaskekart/Carthage/Build/**",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = plaskekart/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = no.lurtgjort.plaskekart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
