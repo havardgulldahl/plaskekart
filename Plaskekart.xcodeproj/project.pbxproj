@@ -37,14 +37,14 @@
 		C2536D681D57C4FC00ECF9FF /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		C2536D6A1D57CA6F00ECF9FF /* NowCast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowCast.swift; sourceTree = "<group>"; };
 		C2536D6B1D57CA6F00ECF9FF /* Radar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Radar.swift; sourceTree = "<group>"; };
-		C264679C1D5601D400AF8A98 /* plaskekart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = plaskekart.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C264679C1D5601D400AF8A98 /* Plaskekart.temp_caseinsensitive_rename.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plaskekart.temp_caseinsensitive_rename.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C264679F1D5601D400AF8A98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C26467A11D5601D400AF8A98 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C26467A41D5601D400AF8A98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C26467A61D5601D400AF8A98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C26467A91D5601D400AF8A98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C26467AB1D5601D400AF8A98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C26467B01D5601D500AF8A98 /* plaskekartTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = plaskekartTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C26467B01D5601D500AF8A98 /* Plaskekart.temp_caseinsensitive_rename.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Plaskekart.temp_caseinsensitive_rename.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C26467B41D5601D500AF8A98 /* plaskekartTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plaskekartTests.swift; sourceTree = "<group>"; };
 		C26467B61D5601D500AF8A98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C26467DA1D569DA400AF8A98 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -86,8 +86,8 @@
 		C264679D1D5601D400AF8A98 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C264679C1D5601D400AF8A98 /* plaskekart.app */,
-				C26467B01D5601D500AF8A98 /* plaskekartTests.xctest */,
+				C264679C1D5601D400AF8A98 /* Plaskekart.temp_caseinsensitive_rename.app */,
+				C26467B01D5601D500AF8A98 /* Plaskekart.temp_caseinsensitive_rename.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -135,7 +135,7 @@
 			);
 			name = plaskekart;
 			productName = plaskekart;
-			productReference = C264679C1D5601D400AF8A98 /* plaskekart.app */;
+			productReference = C264679C1D5601D400AF8A98 /* Plaskekart.temp_caseinsensitive_rename.app */;
 			productType = "com.apple.product-type.application";
 		};
 		C26467AF1D5601D500AF8A98 /* plaskekartTests */ = {
@@ -153,7 +153,7 @@
 			);
 			name = plaskekartTests;
 			productName = plaskekartTests;
-			productReference = C26467B01D5601D500AF8A98 /* plaskekartTests.xctest */;
+			productReference = C26467B01D5601D500AF8A98 /* Plaskekart.temp_caseinsensitive_rename.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -176,7 +176,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C26467971D5601D400AF8A98 /* Build configuration list for PBXProject "plaskekart" */;
+			buildConfigurationList = C26467971D5601D400AF8A98 /* Build configuration list for PBXProject "Plaskekart" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -385,7 +385,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = no.lurtgjort.plaskekart;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Plaskekart.temp_caseinsensitive_rename;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -405,7 +405,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = no.lurtgjort.plaskekart;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Plaskekart.temp_caseinsensitive_rename;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
@@ -417,8 +417,8 @@
 				INFOPLIST_FILE = plaskekartTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = no.lurtgjort.plaskekartTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/plaskekart.app/plaskekart";
+				PRODUCT_NAME = Plaskekart.temp_caseinsensitive_rename;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Plaskekart.temp_caseinsensitive_rename.app/Plaskekart.temp_caseinsensitive_rename";
 			};
 			name = Debug;
 		};
@@ -429,15 +429,15 @@
 				INFOPLIST_FILE = plaskekartTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = no.lurtgjort.plaskekartTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/plaskekart.app/plaskekart";
+				PRODUCT_NAME = Plaskekart.temp_caseinsensitive_rename;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Plaskekart.temp_caseinsensitive_rename.app/Plaskekart.temp_caseinsensitive_rename";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C26467971D5601D400AF8A98 /* Build configuration list for PBXProject "plaskekart" */ = {
+		C26467971D5601D400AF8A98 /* Build configuration list for PBXProject "Plaskekart" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C26467B71D5601D500AF8A98 /* Debug */,
