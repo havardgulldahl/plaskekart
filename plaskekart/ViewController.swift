@@ -93,13 +93,20 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         switch status {
             case CLAuthorizationStatus.Restricted:
                 // "Restricted Access to location"
-                message = "Location access is restricted. Please go to settings to re-enable it"
+                message = NSLocalizedString("CLAuthorizationStatus.Restricted",
+                                            value:"Location access is restricted. Please go to settings to re-enable it",
+                                            comment:"User alert")
             case CLAuthorizationStatus.Denied:
                 // "User denied access to location"
-                message = "Access to current location is needed for automatic maps. If you want to re-enable this, please go to settings"
+                message = NSLocalizedString("CLAuthorizationStatus.Denied",
+                                            value:"Access to current location is needed for automatic maps. If you want to re-enable this, please go to settings",
+                                            comment:"User alert")
+
             case CLAuthorizationStatus.NotDetermined:
                 // "Status not determined"
-                message = "Could not read Location. Please try again later"
+                message = NSLocalizedString("CLAuthorizationStatus.NotDetermined",
+                                            value:"Could not read Location. Please try again later",
+                                            comment:"User alert")
             
         default:
             self.locationManager.startUpdatingLocation()

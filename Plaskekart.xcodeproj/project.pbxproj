@@ -37,6 +37,8 @@
 		C2536D681D57C4FC00ECF9FF /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		C2536D6A1D57CA6F00ECF9FF /* NowCast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowCast.swift; sourceTree = "<group>"; };
 		C2536D6B1D57CA6F00ECF9FF /* Radar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Radar.swift; sourceTree = "<group>"; };
+		C2536D6E1D59259100ECF9FF /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Main.strings; sourceTree = "<group>"; };
+		C2536D6F1D59259100ECF9FF /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C264679C1D5601D400AF8A98 /* Plaskekart.temp_caseinsensitive_rename.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plaskekart.temp_caseinsensitive_rename.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C264679F1D5601D400AF8A98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C26467A11D5601D400AF8A98 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 			children = (
 				C26467A41D5601D400AF8A98 /* Base */,
 				C26467DF1D57C02500AF8A98 /* en */,
+				C2536D6E1D59259100ECF9FF /* nb */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				C26467A91D5601D400AF8A98 /* Base */,
+				C2536D6F1D59259100ECF9FF /* nb */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
