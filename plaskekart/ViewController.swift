@@ -11,6 +11,8 @@ import UIKit
 import CoreLocation
 
 import Kingfisher
+import Haneke
+
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, CLLocationManagerDelegate {
     
@@ -23,6 +25,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 
     let pickerRows = [String](common_radars.keys)
     var locationManager: CLLocationManager!
+    let cache = Cache<NSDictionary>(name: "positions")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +38,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         // only show progressbar on network activity
         self.NetworkProgress.hidden = true
-        
+
         // set up location manager (GPS) stuff
+        cache.fetch(key: "latlon").onSuccess { data in
+            // we have a cached position, start finding map
+            print("viewcontroller.swift: cached position found: \(data)")
+        }
         self.locationManager = CLLocationManager()
         self.locationManager.requestWhenInUseAuthorization() // TODO: ask nicely first
         
@@ -86,69 +93,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         getProjectionMap(radar_url!)
     }
     
-    // MARK: Location aware implementation
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        print("new location atuh status: \(status)")
-        var message: String = ""
-        switch status {
-            case CLAuthorizationStatus.Restricted:
-                // "Restricted Access to location"
-                message = NSLocalizedString("CLAuthorizationStatus.Restricted",
-                                            value:"Location access is restricted. Please go to settings to re-enable it",
-                                            comment:"User alert")
-            case CLAuthorizationStatus.Denied:
-                // "User denied access to location"
-                message = NSLocalizedString("CLAuthorizationStatus.Denied",
-                                            value:"Access to current location is needed for automatic maps. If you want to re-enable this, please go to settings",
-                                            comment:"User alert")
-
-            case CLAuthorizationStatus.NotDetermined:
-                // "Status not determined"
-                message = NSLocalizedString("CLAuthorizationStatus.NotDetermined",
-                                            value:"Could not read Location. Please try again later",
-                                            comment:"User alert")
-            
-        default:
-            self.locationManager.startUpdatingLocation()
-            
-        }
-        if !message.isEmpty{
-            showAlert(message)
-        }
-
-    }
-    
-    
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        // Get a fix on the user's location
-        
-        CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error)->Void in
-            if error != nil{
-                print("Reverse geocoder failed with error" + error!.localizedDescription)
-                return
-            }
-            
-            if placemarks!.count > 0 {
-                let pm = placemarks![0] as CLPlacemark
-                self.displayLocationInfo(pm)
-            } else {
-                print("Problem with the data received from geocoder")
-            }
-        })
-        
-        // Stop location updates
-        //self.locationManager.stopUpdatingLocation()
-        
-        // get correct map from coordinates
-        let latestLocation = locations.last
-        
-        let latitude = String(format: "%.4f", latestLocation!.coordinate.latitude)
-        let longitude = String(format: "%.4f", latestLocation!.coordinate.longitude)
-        
-        print("Latitude: \(latitude)")
-        print("Longitude: \(longitude)")
-        
-    }
 
     
     
@@ -172,7 +116,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         )
         
     }
-    
+    /*
     func showAlert(message: String, title: String = "Error") {
         let myAlert: UIAlertController = UIAlertController(title: title,
                                                            message: message,
@@ -184,6 +128,25 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         self.presentViewController(myAlert, animated: true, completion: nil)
     }
+    */
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error)->Void in
+            if error != nil{
+                print("Reverse geocoder failed with error" + error!.localizedDescription)
+                return
+            }
+    
+            if placemarks!.count > 0 {
+                let pm = placemarks![0] as CLPlacemark
+                self.displayLocationInfo(pm)
+            } else {
+                print("Problem with the data received from geocoder")
+            }
+        })}
+    
+    // Stop location updates
+    //self.locationManager.stopUpdatingLocation()
     
     func displayLocationInfo(placemark: CLPlacemark) {
         //get reverse geocoded area for our current place, and update with the best map for that area

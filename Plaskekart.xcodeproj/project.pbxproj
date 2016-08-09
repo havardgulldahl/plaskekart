@@ -19,6 +19,11 @@
 		C26467AA1D5601D400AF8A98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C26467A81D5601D400AF8A98 /* LaunchScreen.storyboard */; };
 		C26467B51D5601D500AF8A98 /* plaskekartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26467B41D5601D500AF8A98 /* plaskekartTests.swift */; };
 		C26467DB1D569DA400AF8A98 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26467DA1D569DA400AF8A98 /* CoreLocation.framework */; };
+		C2A005C21D594E9F007ED8A4 /* NowCastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A005C11D594E9F007ED8A4 /* NowCastViewController.swift */; };
+		C2A005C41D5955D6007ED8A4 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = C2A005C31D5955D6007ED8A4 /* Cartfile */; };
+		C2A005C61D595786007ED8A4 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A005C51D595786007ED8A4 /* Utils.swift */; };
+		C2A005C81D5A62CF007ED8A4 /* Haneke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A005C71D5A62CF007ED8A4 /* Haneke.framework */; };
+		C2A005CA1D5A69E7007ED8A4 /* test_tromso.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C2A005C91D5A69E7007ED8A4 /* test_tromso.gpx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,11 @@
 		C26467B61D5601D500AF8A98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C26467DA1D569DA400AF8A98 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C26467DF1D57C02500AF8A98 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		C2A005C11D594E9F007ED8A4 /* NowCastViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowCastViewController.swift; sourceTree = "<group>"; };
+		C2A005C31D5955D6007ED8A4 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
+		C2A005C51D595786007ED8A4 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		C2A005C71D5A62CF007ED8A4 /* Haneke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Haneke.framework; path = Carthage/Build/iOS/Haneke.framework; sourceTree = "<group>"; };
+		C2A005C91D5A69E7007ED8A4 /* test_tromso.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = test_tromso.gpx; path = ../test_tromso.gpx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +70,7 @@
 			files = (
 				C2536D691D57C4FC00ECF9FF /* Kingfisher.framework in Frameworks */,
 				C26467DB1D569DA400AF8A98 /* CoreLocation.framework in Frameworks */,
+				C2A005C81D5A62CF007ED8A4 /* Haneke.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +87,7 @@
 		C26467931D5601D400AF8A98 = {
 			isa = PBXGroup;
 			children = (
+				C2A005C71D5A62CF007ED8A4 /* Haneke.framework */,
 				C2536D681D57C4FC00ECF9FF /* Kingfisher.framework */,
 				C2536D661D57C4EB00ECF9FF /* README.md */,
 				C26467DA1D569DA400AF8A98 /* CoreLocation.framework */,
@@ -97,10 +109,14 @@
 		C264679E1D5601D400AF8A98 /* plaskekart */ = {
 			isa = PBXGroup;
 			children = (
+				C2A005C91D5A69E7007ED8A4 /* test_tromso.gpx */,
+				C2A005C31D5955D6007ED8A4 /* Cartfile */,
+				C2A005C11D594E9F007ED8A4 /* NowCastViewController.swift */,
+				C26467A11D5601D400AF8A98 /* ViewController.swift */,
+				C2A005C51D595786007ED8A4 /* Utils.swift */,
 				C2536D6A1D57CA6F00ECF9FF /* NowCast.swift */,
 				C2536D6B1D57CA6F00ECF9FF /* Radar.swift */,
 				C264679F1D5601D400AF8A98 /* AppDelegate.swift */,
-				C26467A11D5601D400AF8A98 /* ViewController.swift */,
 				C26467A31D5601D400AF8A98 /* Main.storyboard */,
 				C26467A61D5601D400AF8A98 /* Assets.xcassets */,
 				C26467A81D5601D400AF8A98 /* LaunchScreen.storyboard */,
@@ -202,10 +218,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2A005C41D5955D6007ED8A4 /* Cartfile in Resources */,
 				C2536D641D57C4C900ECF9FF /* test_regions.gpx in Resources */,
 				C26467AA1D5601D400AF8A98 /* LaunchScreen.storyboard in Resources */,
 				C26467A71D5601D400AF8A98 /* Assets.xcassets in Resources */,
 				C26467A51D5601D400AF8A98 /* Main.storyboard in Resources */,
+				C2A005CA1D5A69E7007ED8A4 /* test_tromso.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,6 +244,7 @@
 			);
 			inputPaths = (
 				/Users/n18040/Documents/Utvikling/plaskekart/Carthage/Build/iOS/Kingfisher.framework,
+				/Users/n18040/Documents/Utvikling/plaskekart/Carthage/Build/iOS/Haneke.framework,
 			);
 			outputPaths = (
 			);
@@ -242,6 +261,8 @@
 			files = (
 				C26467A21D5601D400AF8A98 /* ViewController.swift in Sources */,
 				C2536D671D57C4EB00ECF9FF /* README.md in Sources */,
+				C2A005C21D594E9F007ED8A4 /* NowCastViewController.swift in Sources */,
+				C2A005C61D595786007ED8A4 /* Utils.swift in Sources */,
 				C2536D6C1D57CA6F00ECF9FF /* NowCast.swift in Sources */,
 				C2536D6D1D57CA6F00ECF9FF /* Radar.swift in Sources */,
 				C26467A01D5601D400AF8A98 /* AppDelegate.swift in Sources */,

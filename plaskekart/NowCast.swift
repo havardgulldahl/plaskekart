@@ -11,4 +11,20 @@
 //  License: GPL3
 
 import Foundation
+import Haneke
 
+
+// MARK: add type support for NSDictionary to Haneke cache, for storing latlon
+extension NSDictionary : DataConvertible, DataRepresentable {
+    
+    public typealias Result = NSDictionary
+    
+    public class func convertFromData(data:NSData) -> Result? {
+        return NSKeyedUnarchiver.unarchiveObjectWithData(data) as? NSDictionary
+    }
+    
+    public func asData() -> NSData! {
+        return NSKeyedArchiver.archivedDataWithRootObject(self)
+    }
+    
+}
