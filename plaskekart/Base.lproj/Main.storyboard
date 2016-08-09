@@ -3,6 +3,7 @@
     <dependencies>
         <deployment version="2304" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -23,6 +24,9 @@
                                 <subviews>
                                     <imageView autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="332" placeholderIntrinsicHeight="345" image="nordland_troms" translatesAutoresizingMaskIntoConstraints="NO" id="RtA-zW-OSH" userLabel="ProjectionMap">
                                         <rect key="frame" x="6" y="0.0" width="331" height="345"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="RtA-zW-OSH" secondAttribute="height" multiplier="331:345" id="Pnr-oR-ql5"/>
+                                        </constraints>
                                     </imageView>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="NF6-23-POS">
                                         <rect key="frame" x="97" y="345" width="149" height="2"/>

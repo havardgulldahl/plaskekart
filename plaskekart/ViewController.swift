@@ -26,12 +26,17 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     let pickerRows = [String](common_radars.keys)
     var locationManager: CLLocationManager!
     let cache = Cache<NSDictionary>(name: "positions")
+    let mapcache = KingfisherManager.sharedManager.cache
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        // connect radar picker to here, must implement picker protocol 
+        // Set max map cache to duration to 3 hours,
+        // which is roughly the duration for the maps returned
+        mapcache.maxCachePeriodInSecond = 60 * 60 * 3
+        
+        // connect radar picker to here, must implement picker protocol
         // (see *pickerView* functions below)
         self.ProjectionPicker.delegate = self
         self.ProjectionPicker.dataSource = self
@@ -53,10 +58,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             self.locationManager.startUpdatingLocation()
         }
         
-        // load initial precipitation map, either from cache or disk
+        // load initial precipitation map of norway, while waiting for regional info from gps
         ProjectionMap.kf_setImageWithURL(radar_norway,
-                                         placeholderImage: UIImage.init(named: "nordland_troms"),
-                                         optionsInfo: [.ForceRefresh]) //dont get from the net 
+                                         placeholderImage: UIImage.init(named: "nordland_troms"))
 
     }
 
@@ -100,6 +104,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     func getProjectionMap(mapUrl: NSURL) {
         // get projection map from the internet
+        if ProjectionMap.kf_webURL == mapUrl {
+            // the url is the same as before
+            // check to see if cache is stale, else abort
+            print("Uncaught: url is the same :(")
+        }
         NetworkProgress.setProgress(0.0, animated: false)
         NetworkProgress.hidden = false
         ProjectionMap.kf_setImageWithURL(mapUrl,
