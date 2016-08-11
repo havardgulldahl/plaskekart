@@ -8,13 +8,11 @@
 
 import UIKit
 
-class LocationCast {
+class Location {
     // MARK: properties
     var latitude: String
     var longitude: String
     var region: String?
-    var nowCasts: Array<AnyObject>?
-    var regionRadarMap: NSURL?
     
     init?(latitude: String, longitude: String) {
         self.latitude = latitude
@@ -24,4 +22,13 @@ class LocationCast {
             return nil
         }
     }
+}
+
+struct LocationCast {
+    // MARK: properties
+    
+    var loc: Location
+    var nowCasts: Array<AnyObject>?
+    var regionRadarMap: NSURL?
+    
 }
