@@ -1,5 +1,6 @@
 //
 //  NowCastViewController.swift
+//  VC for the NowCast tab
 //  Plaskekart
 //
 //  Created by Håvard Gulldahl on 09.08.2016.

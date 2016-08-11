@@ -11,20 +11,12 @@
 //  License: GPL3
 
 import Foundation
-import Haneke
 
+import Alamofire
+import SWXMLHash
 
-// MARK: add type support for NSDictionary to Haneke cache, for storing latlon
-extension NSDictionary : DataConvertible, DataRepresentable {
-    
-    public typealias Result = NSDictionary
-    
-    public class func convertFromData(data:NSData) -> Result? {
-        return NSKeyedUnarchiver.unarchiveObjectWithData(data) as? NSDictionary
-    }
-    
-    public func asData() -> NSData! {
-        return NSKeyedArchiver.archivedDataWithRootObject(self)
-    }
-    
+func getCastURL(latitude: String, longitude: String) -> NSURL {
+    // get lat+lon and return something like
+    // http://api.met.no/weatherapi/nowcast/0.9/?lat=60.10;lon=9.58
+    return NSURL(string: "http://api.met.no/weatherapi/nowcast/0.9/?lat=60.10;lon=9.58")!
 }

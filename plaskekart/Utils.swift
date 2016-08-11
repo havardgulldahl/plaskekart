@@ -7,7 +7,23 @@
 //
 
 import UIKit
+import Haneke
 
+
+// MARK: add type support for NSDictionary to Haneke cache, for storing latlon
+extension NSDictionary : DataConvertible, DataRepresentable {
+    
+    public typealias Result = NSDictionary
+    
+    public class func convertFromData(data:NSData) -> Result? {
+        return NSKeyedUnarchiver.unarchiveObjectWithData(data) as? NSDictionary
+    }
+    
+    public func asData() -> NSData! {
+        return NSKeyedArchiver.archivedDataWithRootObject(self)
+    }
+    
+}
 
 func showAlert(message: String, vc: UIViewController, title: String = "Error") {
     let myAlert: UIAlertController = UIAlertController(title: title,
@@ -20,4 +36,11 @@ func showAlert(message: String, vc: UIViewController, title: String = "Error") {
     
     vc.presentViewController(myAlert, animated: true, completion: nil)
 }
-  
+
+// modify headers for all HTTP traffic
+let modifiedHTTPHeaders = [
+    "User-Agent": "plaskekart 0.1 http://github.com/havardgulldahl/plaskekart"
+]
+
+
+

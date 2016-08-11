@@ -1,5 +1,6 @@
 //
 //  ViewController.swift
+//  VC for the radar map tab
 //  plaskekart
 //
 //  Created by Håvard Gulldahl on 06.08.2016.

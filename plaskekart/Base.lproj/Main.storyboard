@@ -63,10 +63,10 @@
             </objects>
             <point key="canvasLocation" x="1116.5" y="248.5"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Location View Controller-->
         <scene sceneID="yQq-eD-DZv">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ZGi-RA-V6j" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ZGi-RA-V6j" customClass="LocationViewController" customModule="Plaskekart_temp_caseinsensitive_rename" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" barStyle="black" translucent="NO"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="NTF-sR-b5l">
