@@ -1,2 +1,4 @@
 github "onevcat/Kingfisher" ~> 2.4
-github "Haneke/HanekeSwift"
+github "drmohundro/SWXMLHash" ~> 2.5
+github "Alamofire/Alamofire" ~> 3.4
+

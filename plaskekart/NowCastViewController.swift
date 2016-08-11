@@ -9,7 +9,7 @@
 
 import UIKit
 import CoreLocation
-import Haneke
+//import Haneke
 
 class NowCastViewController: UIViewController, CLLocationManagerDelegate {
 
@@ -17,20 +17,26 @@ class NowCastViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var NowCastImageView: UIImageView!
 
     var locationManager: CLLocationManager!
-    let cache = Cache<NSDictionary>(name: "positions")
+    //let cache = Cache<NSDictionary>(name: "positions")
+    let locationCast = LocationCast.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // set up location manager (GPS) stuff
         self.locationManager = CLLocationManager()
         self.locationManager.requestWhenInUseAuthorization() // TODO: ask nicely first
         
+        /*
         cache.fetch(key: "latlon").onSuccess { data in
             // we have a cached position, start getting nowcast
             print("nowcastviewcontroller.swift: cached position found: \(data)")
             self.updateNowCast(data["latitude"] as! String, long: data["longitude"] as! String!)
         }
+        */
+        
+        print("nowcastvc: ")
+        debugPrint(locationCast)
         
         if CLLocationManager.locationServicesEnabled() {
             self.locationManager.delegate = self
@@ -74,7 +80,7 @@ class NowCastViewController: UIViewController, CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         // Get a fix on the user's location
-        self.locationManager.stopUpdatingLocation()
+        //self.locationManager.stopUpdatingLocation()
         
         // get correct map from coordinates
         let latestLocation = locations.last
@@ -84,7 +90,7 @@ class NowCastViewController: UIViewController, CLLocationManagerDelegate {
         
         print("nowcastvc Latitude: \(latitude)")
         print("nowcastvc Longitude: \(longitude)")
-        cache.set(value: ["latitude": latitude, "longitude": longitude], key: "latlon")
+        //cache.set(value: ["latitude": latitude, "longitude": longitude], key: "latlon")
         self.updateNowCast(latitude, long: longitude)
         
     }
@@ -96,6 +102,8 @@ class NowCastViewController: UIViewController, CLLocationManagerDelegate {
     
     func updateNowCast(lat: String, long: String) {
         NowCastLabel.text = "Latitude: \(lat), longitude: \(long)"
+        self.locationCast.loc = Location(latitude: lat, longitude: long)!
+        
     }
     
 

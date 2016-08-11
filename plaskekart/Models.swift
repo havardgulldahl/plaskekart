@@ -25,13 +25,6 @@ class Location {
     }
 }
 
-struct LocationCast {
-    // MARK: properties
-    
-    var loc: Location
-    var nowCasts: Array<NowCast>?
-    var regionRadarMap: NSURL?
-}
 
 struct Precipitation {
     let unit: String
@@ -97,3 +90,26 @@ struct NowCast: XMLIndexerDeserializable {
         )
     }
 }
+
+
+class LocationCast {
+    class var sharedInstance: LocationCast {
+        struct Static {
+            static var instance: LocationCast?
+            static var token: dispatch_once_t = 0
+        }
+        
+        dispatch_once(&Static.token) {
+            Static.instance = LocationCast()
+        }
+        
+        return Static.instance!
+    }
+        
+    var loc: Location?
+    var nowCasts: Array<NowCast>?
+    var regionRadarMap: NSURL?
+    
+
+}
+

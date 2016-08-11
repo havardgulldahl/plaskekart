@@ -24,8 +24,10 @@
 		C2A005C61D595786007ED8A4 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A005C51D595786007ED8A4 /* Utils.swift */; };
 		C2A005C81D5A62CF007ED8A4 /* Haneke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A005C71D5A62CF007ED8A4 /* Haneke.framework */; };
 		C2A005CA1D5A69E7007ED8A4 /* test_tromso.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C2A005C91D5A69E7007ED8A4 /* test_tromso.gpx */; };
-		C2A005CC1D5BF151007ED8A4 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A005CB1D5BF151007ED8A4 /* Location.swift */; };
+		C2A005CC1D5BF151007ED8A4 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A005CB1D5BF151007ED8A4 /* Models.swift */; };
 		C2A005D01D5BF59F007ED8A4 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A005CF1D5BF59F007ED8A4 /* LocationViewController.swift */; };
+		C2A005D31D5D0515007ED8A4 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A005D11D5D0515007ED8A4 /* Alamofire.framework */; };
+		C2A005D41D5D0515007ED8A4 /* SWXMLHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A005D21D5D0515007ED8A4 /* SWXMLHash.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,8 +65,10 @@
 		C2A005C51D595786007ED8A4 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		C2A005C71D5A62CF007ED8A4 /* Haneke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Haneke.framework; path = Carthage/Build/iOS/Haneke.framework; sourceTree = "<group>"; };
 		C2A005C91D5A69E7007ED8A4 /* test_tromso.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = test_tromso.gpx; path = ../test_tromso.gpx; sourceTree = "<group>"; };
-		C2A005CB1D5BF151007ED8A4 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		C2A005CB1D5BF151007ED8A4 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		C2A005CF1D5BF59F007ED8A4 /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		C2A005D11D5D0515007ED8A4 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		C2A005D21D5D0515007ED8A4 /* SWXMLHash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SWXMLHash.framework; path = Carthage/Build/iOS/SWXMLHash.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,8 @@
 				C2536D691D57C4FC00ECF9FF /* Kingfisher.framework in Frameworks */,
 				C26467DB1D569DA400AF8A98 /* CoreLocation.framework in Frameworks */,
 				C2A005C81D5A62CF007ED8A4 /* Haneke.framework in Frameworks */,
+				C2A005D31D5D0515007ED8A4 /* Alamofire.framework in Frameworks */,
+				C2A005D41D5D0515007ED8A4 /* SWXMLHash.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +97,8 @@
 		C26467931D5601D400AF8A98 = {
 			isa = PBXGroup;
 			children = (
+				C2A005D11D5D0515007ED8A4 /* Alamofire.framework */,
+				C2A005D21D5D0515007ED8A4 /* SWXMLHash.framework */,
 				C2A005C71D5A62CF007ED8A4 /* Haneke.framework */,
 				C2536D681D57C4FC00ECF9FF /* Kingfisher.framework */,
 				C2536D661D57C4EB00ECF9FF /* README.md */,
@@ -121,7 +129,7 @@
 				C2536D6A1D57CA6F00ECF9FF /* NowCast.swift */,
 				C2536D6B1D57CA6F00ECF9FF /* Radar.swift */,
 				C264679F1D5601D400AF8A98 /* AppDelegate.swift */,
-				C2A005CB1D5BF151007ED8A4 /* Location.swift */,
+				C2A005CB1D5BF151007ED8A4 /* Models.swift */,
 				C2A005CF1D5BF59F007ED8A4 /* LocationViewController.swift */,
 				C26467A31D5601D400AF8A98 /* Main.storyboard */,
 				C26467A61D5601D400AF8A98 /* Assets.xcassets */,
@@ -251,6 +259,8 @@
 			inputPaths = (
 				/Users/n18040/Documents/Utvikling/plaskekart/Carthage/Build/iOS/Kingfisher.framework,
 				/Users/n18040/Documents/Utvikling/plaskekart/Carthage/Build/iOS/Haneke.framework,
+				/Users/n18040/Documents/Utvikling/plaskekart/Carthage/Build/iOS/SWXMLHash.framework,
+				/Users/n18040/Documents/Utvikling/plaskekart/Carthage/Build/iOS/Alamofire.framework,
 			);
 			outputPaths = (
 			);
@@ -267,7 +277,7 @@
 			files = (
 				C26467A21D5601D400AF8A98 /* ViewController.swift in Sources */,
 				C2536D671D57C4EB00ECF9FF /* README.md in Sources */,
-				C2A005CC1D5BF151007ED8A4 /* Location.swift in Sources */,
+				C2A005CC1D5BF151007ED8A4 /* Models.swift in Sources */,
 				C2A005C21D594E9F007ED8A4 /* NowCastViewController.swift in Sources */,
 				C2A005C61D595786007ED8A4 /* Utils.swift in Sources */,
 				C2536D6C1D57CA6F00ECF9FF /* NowCast.swift in Sources */,

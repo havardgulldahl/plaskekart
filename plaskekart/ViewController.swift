@@ -28,7 +28,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     var locationManager: CLLocationManager!
     let cache = Cache<NSDictionary>(name: "positions")
     let mapcache = KingfisherManager.sharedManager.cache
-    
+    let locationCast = LocationCast.sharedInstance
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -46,10 +47,17 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         self.NetworkProgress.hidden = true
 
         // set up location manager (GPS) stuff
+        /*
         cache.fetch(key: "latlon").onSuccess { data in
             // we have a cached position, start finding map
             print("viewcontroller.swift: cached position found: \(data)")
         }
+         */
+        
+        
+        print("vc: ")
+        debugPrint(locationCast)
+        
         self.locationManager = CLLocationManager()
         self.locationManager.requestWhenInUseAuthorization() // TODO: ask nicely first
         
@@ -108,7 +116,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         if ProjectionMap.kf_webURL == mapUrl {
             // the url is the same as before
             // check to see if cache is stale, else abort
-            print("Uncaught: url is the same :(")
+            print("projection map url is the same, not changing it ")
+            // TODO: check if the image is stale (> 2hrs)
+            return
         }
         NetworkProgress.setProgress(0.0, animated: false)
         NetworkProgress.hidden = false
@@ -149,6 +159,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
             if placemarks!.count > 0 {
                 let pm = placemarks![0] as CLPlacemark
+                self.locationCast.loc!.region = pm.administrativeArea!
+                self.locationCast.regionRadarMap = getMapForArea(pm.administrativeArea!)
                 self.displayLocationInfo(pm)
             } else {
                 print("Problem with the data received from geocoder")

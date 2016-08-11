@@ -12,7 +12,8 @@ import UIKit
 class LocationViewController: UITabBarController {
     
     // MARK: Properties
-    var location = LocationCast(latitude: "",longitude: "")
+    var location = Location.self
+    var locationCast = LocationCast.self
 
     override func viewDidLoad() {
         super.viewDidLoad()

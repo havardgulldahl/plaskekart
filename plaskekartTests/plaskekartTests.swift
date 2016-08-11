@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import plaskekart
+//@testable import plaskekart
 
 class plaskekartTests: XCTestCase {
     
