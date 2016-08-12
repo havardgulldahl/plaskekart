@@ -101,9 +101,21 @@ class NowCastViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func updateNowCast(lat: String, long: String) {
+        if self.locationCast.loc?.latitude == lat && self.locationCast.loc?.longitude == long {
+            // same spot, abort
+            return
+        }
         NowCastLabel.text = "Latitude: \(lat), longitude: \(long)"
-        self.locationCast.loc = Location(latitude: lat, longitude: long)!
+        let newLoc = Location(latitude: lat, longitude: long)!
+        self.locationCast.loc = newLoc
+        getNowCasts(newLoc, completion: analyzeCasts)
         
+        
+    }
+    
+    func analyzeCasts(casts: [NowCast]) -> Void {
+        print("analyzeCasts")
+        debugPrint(casts)
     }
     
 
