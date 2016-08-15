@@ -115,8 +115,33 @@ class NowCastViewController: UIViewController, CLLocationManagerDelegate {
     
     func analyzeCasts(casts: [NowCast]) -> Void {
         print("analyzeCasts")
-        debugPrint(casts)
+        //debugPrint(casts)
         self.locationCast.nowCasts = casts
+        
+        
+        var symbols = [PrecipitationCast]()
+        
+        for c in casts {
+            if symbols.count > 0  { // get last element of array to compare
+                do {
+                   try symbols[symbols.endIndex-1].appendIfEqual(c)
+                    continue
+                }
+                catch PrecipitationCastError.PrecipitationDiffers {
+                    print ("lastsymbol )")
+                }
+                catch {
+                    print ("some other error \(error)")
+                }
+            }
+            // no last element found (= empty array)
+            // or not equal
+            symbols.append(PrecipitationCast(from: c.timeFrom, to: c.timeTo, precipitation: c.cast))
+        }
+        debugPrint(symbols)
+        
+        
+        
     }
     
 

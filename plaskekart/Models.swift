@@ -9,6 +9,14 @@
 import UIKit
 import SWXMLHash
 
+
+enum PrecipitationCastError: ErrorType {
+    case IllegalPrecipitationValue
+    case PrecipitationDiffers
+    case DateRangeDisconnected
+}
+
+
 public class Location {
     // MARK: properties
     var latitude: String
@@ -40,6 +48,32 @@ public struct Precipitation {
     }
 }
 
+public struct PrecipitationCast {
+    var from: NSDate
+    var to: NSDate
+    let precipitation: Precipitation
+    
+    init(from: NSDate, to: NSDate, precipitation: Precipitation) {
+        self.from = from
+        self.to = to
+        self.precipitation = precipitation
+        
+    }
+    
+    public mutating func appendIfEqual(cast: NowCast) throws -> Bool {
+        // get another precipitationCast, and compare 
+        // 1. if precipitation is the same, extend self.to 
+        // 2. if not the same, throw something 
+        if self.precipitation.unit == cast.cast.unit &&
+            self.precipitation.value == cast.cast.value {
+            self.to = cast.timeTo
+            return true
+        } else {
+            throw PrecipitationCastError.PrecipitationDiffers
+        }
+    }
+}
+
 extension NSDate: XMLAttributeDeserializable  {
     public static func deserialize(attribute: XMLAttribute) throws -> Self {
         if attribute.text.isEmpty {
@@ -65,7 +99,7 @@ extension NSDate: XMLAttributeDeserializable  {
 }
 
 
-struct NowCast: XMLIndexerDeserializable {
+public struct NowCast: XMLIndexerDeserializable {
     // a struct that is fit to deserialize a nowcast structure with SWXMLHash
     // see https://github.com/drmohundro/SWXMLHash
 /* <time datatype="forecast" from="2016-08-10T22:30:00Z" to="2016-08-10T22:30:00Z">
@@ -79,7 +113,7 @@ struct NowCast: XMLIndexerDeserializable {
     let location: Location
     let cast: Precipitation
     
-    static func deserialize(node: XMLIndexer) throws -> NowCast {
+    public static func deserialize(node: XMLIndexer) throws -> NowCast {
         return try NowCast(
             timeFrom: node.value(ofAttribute: "from"),
             timeTo: node.value(ofAttribute: "to"),
@@ -113,4 +147,6 @@ public class LocationCast {
     
 
 }
+
+
 
