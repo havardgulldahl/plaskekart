@@ -11,7 +11,7 @@
 
 import Foundation
 
-func getRadarURL (site: String, animated: Bool = true, size: String = "normal") -> NSURL {
+func getRadarURL (site: String, animated: Bool = true, size: String = "medium") -> NSURL {
     // Documentation: http://api.met.no/weatherapi/radar/1.5/documentation
     // example url https://api.met.no/weatherapi/radar/1.5/?radarsite=nordland_troms;type=reflectivity;content=animation;size=large"
     // valid sites: see bottom of this file
