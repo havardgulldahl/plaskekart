@@ -116,6 +116,7 @@ class NowCastViewController: UIViewController, CLLocationManagerDelegate {
     func analyzeCasts(casts: [NowCast]) -> Void {
         print("analyzeCasts")
         debugPrint(casts)
+        self.locationCast.nowCasts = casts
     }
     
 

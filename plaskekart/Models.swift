@@ -9,7 +9,7 @@
 import UIKit
 import SWXMLHash
 
-class Location {
+public class Location {
     // MARK: properties
     var latitude: String
     var longitude: String
@@ -23,10 +23,17 @@ class Location {
             return nil
         }
     }
+    
+    static func deserialize(node: XMLIndexer) throws -> Location {
+        return try Location(
+            latitude: node.value(ofAttribute: "latitude"),
+            longitude: node.value(ofAttribute: "longitude")
+        )!
+    }
 }
 
 
-struct Precipitation {
+public struct Precipitation {
     let unit: String
     let value: Float
     
@@ -83,16 +90,16 @@ struct NowCast: XMLIndexerDeserializable {
         return try NowCast(
             timeFrom: node.value(ofAttribute: "from"),
             timeTo: node.value(ofAttribute: "to"),
-            location: Location(latitude: node["location"].value(ofAttribute: "latitude"),
-                longitude: node["location"].value(ofAttribute: "longitude"))!,
-            cast: Precipitation(unit: node["precipitation"].value(ofAttribute: "unit"),
-                value: node["precipitation"].value(ofAttribute: "value"))!
+            location: Location.deserialize(node["location"]),
+            cast: Precipitation(unit: node["location"]["precipitation"].value(ofAttribute: "unit"),
+                value: node["location"]["precipitation"].value(ofAttribute: "value"))!
+   
         )
     }
 }
 
 
-class LocationCast {
+public class LocationCast {
     class var sharedInstance: LocationCast {
         struct Static {
             static var instance: LocationCast?
