@@ -23,13 +23,6 @@ public class Location {
             return nil
         }
     }
-    
-    static func deserialize(node: XMLIndexer) throws -> Location {
-        return try Location(
-            latitude: node.value(ofAttribute: "latitude"),
-            longitude: node.value(ofAttribute: "longitude")
-        )!
-    }
 }
 
 
@@ -90,7 +83,8 @@ struct NowCast: XMLIndexerDeserializable {
         return try NowCast(
             timeFrom: node.value(ofAttribute: "from"),
             timeTo: node.value(ofAttribute: "to"),
-            location: Location.deserialize(node["location"]),
+            location: Location(latitude: node["location"].value(ofAttribute: "latitude"),
+                longitude: node["location"].value(ofAttribute: "longitude"))!,
             cast: Precipitation(unit: node["location"]["precipitation"].value(ofAttribute: "unit"),
                 value: node["location"]["precipitation"].value(ofAttribute: "value"))!
    
