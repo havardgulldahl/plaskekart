@@ -10,5 +10,7 @@ import UIKit
 
 class PrecipitationCastIconCell: UICollectionViewCell {
     
+    @IBOutlet weak var Timestamp: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var Precipitation: UILabel!
 }

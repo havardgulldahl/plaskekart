@@ -16,26 +16,16 @@ class NowCastViewController: UIViewController, CLLocationManagerDelegate, UIColl
     @IBOutlet weak var CollectionView: UICollectionView!
 
     var locationManager: CLLocationManager!
-    //let cache = Cache<NSDictionary>(name: "positions")
     let locationCast = LocationCast.sharedInstance
-    private let reuseIdentifier = "PrecipitationCell"
+    private let reuseIdentifier = "PrecipitationCell" // identical to "identifier" property of cell
     private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.collectionView.registerClass(PrecipitationCastIconCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         // set up location manager (GPS) stuff
         self.locationManager = CLLocationManager()
         self.locationManager.requestWhenInUseAuthorization() // TODO: ask nicely first
-        
-        /*
-        cache.fetch(key: "latlon").onSuccess { data in
-            // we have a cached position, start getting nowcast
-            print("nowcastviewcontroller.swift: cached position found: \(data)")
-            self.updateNowCast(data["latitude"] as! String, long: data["longitude"] as! String!)
-        }
-        */
         
         print("nowcastvc: ")
         debugPrint(locationCast)
@@ -90,9 +80,6 @@ class NowCastViewController: UIViewController, CLLocationManagerDelegate, UIColl
         let latitude = String(format: "%.4f", latestLocation!.coordinate.latitude)
         let longitude = String(format: "%.4f", latestLocation!.coordinate.longitude)
         
-        print("nowcastvc Latitude: \(latitude)")
-        print("nowcastvc Longitude: \(longitude)")
-        //cache.set(value: ["latitude": latitude, "longitude": longitude], key: "latlon")
         self.updateNowCast(latitude, long: longitude)
         
     }
@@ -107,8 +94,8 @@ class NowCastViewController: UIViewController, CLLocationManagerDelegate, UIColl
             // same spot, abort
             return
         }
-        //NowCastLabel.text = "Latitude: \(lat), longitude: \(long)"
         let newLoc = Location(latitude: lat, longitude: long)!
+        print("updatenewcast: new location: \(newLoc)")
         self.locationCast.loc = newLoc
         getNowCasts(newLoc, completion: analyzeCasts)
         
@@ -142,7 +129,10 @@ class NowCastViewController: UIViewController, CLLocationManagerDelegate, UIColl
         }
         debugPrint(symbols)
         self.locationCast.precipitationCasts = symbols
-        
+        // refresh collection view
+        dispatch_async(dispatch_get_main_queue(), {
+            self.CollectionView.reloadData()
+        })
         
     }
     
@@ -161,7 +151,23 @@ class NowCastViewController: UIViewController, CLLocationManagerDelegate, UIColl
         }
     }
     
-    
+    func nowCastForIndexPath(indexPath: NSIndexPath) -> (PrecipitationCast, UIImage) {
+        var i = UIImage(named: "hail")! // default image
+        if locationCast.precipitationCasts == nil {
+            return (PrecipitationCast(from: NSDate(), to:NSDate(timeIntervalSinceNow: 60.0*60*6), precipitation: Precipitation(unit: "mm/t", value: 0.0)!),
+                    i
+                   )
+        }
+        let p = locationCast.precipitationCasts![indexPath.section]
+        switch p.precipitation.value {
+        case 0.0 :
+            i = UIImage(named: "cloud")!
+        default :
+            i = UIImage(named: "rain-1")!
+        }
+        return (p, i)
+        
+    }
     
     //1
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -188,16 +194,18 @@ class NowCastViewController: UIViewController, CLLocationManagerDelegate, UIColl
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! PrecipitationCastIconCell
         cell.backgroundColor = UIColor.redColor()
         // Configure the cell
-        let icon = self.photoForIndexPath(indexPath)
-        //cell.backgroundColor = UIColor.blackColor()
-        //3
+        let (cast, icon) = self.nowCastForIndexPath(indexPath)
+        cell.Timestamp.text = cast.from.description
         cell.imageView.image = icon
+        cell.Precipitation.text = "\(cast.precipitation.value) \(cast.precipitation.unit)"
         return cell
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         // handle tap events
         print("You selected cell #\(indexPath.item)!")
+        let (cast, _) = self.nowCastForIndexPath(indexPath)
+        debugPrint("prec: \(cast.precipitation.value)")
     }
     
     /*

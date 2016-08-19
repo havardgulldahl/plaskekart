@@ -22,6 +22,7 @@
 		C26467AA1D5601D400AF8A98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C26467A81D5601D400AF8A98 /* LaunchScreen.storyboard */; };
 		C26467B51D5601D500AF8A98 /* plaskekartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26467B41D5601D500AF8A98 /* plaskekartTests.swift */; };
 		C26467DB1D569DA400AF8A98 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26467DA1D569DA400AF8A98 /* CoreLocation.framework */; };
+		C28E46381D67BEE8009C94BB /* test_bodø.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C28E46371D67BEE8009C94BB /* test_bodø.gpx */; };
 		C2A005C21D594E9F007ED8A4 /* NowCastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A005C11D594E9F007ED8A4 /* NowCastViewController.swift */; };
 		C2A005C41D5955D6007ED8A4 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = C2A005C31D5955D6007ED8A4 /* Cartfile */; };
 		C2A005C61D595786007ED8A4 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A005C51D595786007ED8A4 /* Utils.swift */; };
@@ -66,6 +67,7 @@
 		C26467B61D5601D500AF8A98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C26467DA1D569DA400AF8A98 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C26467DF1D57C02500AF8A98 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		C28E46371D67BEE8009C94BB /* test_bodø.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "test_bodø.gpx"; sourceTree = "<group>"; };
 		C2A005C11D594E9F007ED8A4 /* NowCastViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowCastViewController.swift; sourceTree = "<group>"; };
 		C2A005C31D5955D6007ED8A4 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		C2A005C51D595786007ED8A4 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			children = (
 				C2A005C91D5A69E7007ED8A4 /* test_tromso.gpx */,
 				C2608BD31D62791F00EB9D6C /* test_steinkjer.gpx */,
+				C28E46371D67BEE8009C94BB /* test_bodø.gpx */,
 				C2A005C31D5955D6007ED8A4 /* Cartfile */,
 				C2A005C11D594E9F007ED8A4 /* NowCastViewController.swift */,
 				C26467A11D5601D400AF8A98 /* ViewController.swift */,
@@ -247,6 +250,7 @@
 				C26467AA1D5601D400AF8A98 /* LaunchScreen.storyboard in Resources */,
 				C26467A71D5601D400AF8A98 /* Assets.xcassets in Resources */,
 				C26467A51D5601D400AF8A98 /* Main.storyboard in Resources */,
+				C28E46381D67BEE8009C94BB /* test_bodø.gpx in Resources */,
 				C2A005CA1D5A69E7007ED8A4 /* test_tromso.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
