@@ -1,6 +1,9 @@
 //
 //  LocationViewController.swift
 //  Sub class to add custom properties to tab bar controller
+//  namely
+//  .location
+//  .locationCast
 //  Plaskekart
 //
 //  Created by Håvard Gulldahl on 11.08.2016.
@@ -17,7 +20,7 @@ class LocationViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("LocationViewController loaded")
         // Do any additional setup after loading the view.
     }
 

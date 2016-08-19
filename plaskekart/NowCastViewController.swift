@@ -11,17 +11,19 @@ import UIKit
 import CoreLocation
 //import Haneke
 
-class NowCastViewController: UIViewController, CLLocationManagerDelegate {
+class NowCastViewController: UIViewController, CLLocationManagerDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
 
-    @IBOutlet weak var NowCastLabel: UILabel!
-    @IBOutlet weak var NowCastImageView: UIImageView!
+    @IBOutlet weak var CollectionView: UICollectionView!
 
     var locationManager: CLLocationManager!
     //let cache = Cache<NSDictionary>(name: "positions")
     let locationCast = LocationCast.sharedInstance
+    private let reuseIdentifier = "PrecipitationCell"
+    private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //self.collectionView.registerClass(PrecipitationCastIconCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         // set up location manager (GPS) stuff
         self.locationManager = CLLocationManager()
@@ -105,7 +107,7 @@ class NowCastViewController: UIViewController, CLLocationManagerDelegate {
             // same spot, abort
             return
         }
-        NowCastLabel.text = "Latitude: \(lat), longitude: \(long)"
+        //NowCastLabel.text = "Latitude: \(lat), longitude: \(long)"
         let newLoc = Location(latitude: lat, longitude: long)!
         self.locationCast.loc = newLoc
         getNowCasts(newLoc, completion: analyzeCasts)
@@ -139,12 +141,65 @@ class NowCastViewController: UIViewController, CLLocationManagerDelegate {
             symbols.append(PrecipitationCast(from: c.timeFrom, to: c.timeTo, precipitation: c.cast))
         }
         debugPrint(symbols)
-        
+        self.locationCast.precipitationCasts = symbols
         
         
     }
     
 
+    // MARK: precipitationcast cell
+    func photoForIndexPath(indexPath: NSIndexPath) -> UIImage {
+        if locationCast.precipitationCasts == nil {
+            return UIImage(named: "hail")!
+        }
+        switch locationCast.precipitationCasts![indexPath.section].precipitation.value {
+        case 0.0 :
+            return UIImage(named: "cloud")!
+        default :
+            return UIImage(named: "rain-1")!
+            
+        }
+    }
+    
+    
+    
+    //1
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        debugPrint("//1 numberofsectionsincollectionview")
+        if let c = locationCast.precipitationCasts {
+            return c.count
+        }
+        return 1 // no locatoincasts yet
+    }
+    
+    //2
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        debugPrint("//2 collectionview numberofofitems")
+        if let c = locationCast.precipitationCasts {
+            return c.count
+        }
+        return 1 // no locatoincasts yet
+    }
+    
+    //3
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        debugPrint("//3 collectionview cellforitematindexpath")
+
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! PrecipitationCastIconCell
+        cell.backgroundColor = UIColor.redColor()
+        // Configure the cell
+        let icon = self.photoForIndexPath(indexPath)
+        //cell.backgroundColor = UIColor.blackColor()
+        //3
+        cell.imageView.image = icon
+        return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        // handle tap events
+        print("You selected cell #\(indexPath.item)!")
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -154,5 +209,7 @@ class NowCastViewController: UIViewController, CLLocationManagerDelegate {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
 
 }

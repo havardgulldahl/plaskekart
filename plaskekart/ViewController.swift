@@ -99,6 +99,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         // This method is triggered whenever the user makes a change to the picker selection.
         // The parameter named row and component represents what was selected.
+
+        // Stop location updates, since this indicates that the user wants to override the auto map
+        self.locationManager.stopUpdatingLocation()
+        
         let val = pickerRows[row]
         print("Got picked value: \(val)")
         let radar_url = common_radars[val]
@@ -159,9 +163,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
             if placemarks!.count > 0 {
                 let pm = placemarks![0] as CLPlacemark
-                self.locationCast.loc!.region = pm.administrativeArea!
-                self.locationCast.regionRadarMap = getMapForArea(pm.administrativeArea!)
-                self.displayLocationInfo(pm)
+                if let area = pm.administrativeArea {
+                    self.locationCast.loc!.region = area
+                    self.locationCast.regionRadarMap = getMapForArea(area)
+                    self.displayLocationInfo(pm)
+                } else {
+                    print("no adminsitrative area retrieved from geocoder")
+                }
+                
             } else {
                 print("Problem with the data received from geocoder")
             }

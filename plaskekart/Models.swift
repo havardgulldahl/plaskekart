@@ -144,6 +144,7 @@ public class LocationCast {
     var loc: Location?
     var nowCasts: Array<NowCast>?
     var regionRadarMap: NSURL?
+    var precipitationCasts: Array<PrecipitationCast>?
     
 
 }

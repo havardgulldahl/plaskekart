@@ -95,28 +95,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="MZ7-Ka-9gN">
-                                <rect key="frame" x="20" y="94" width="335" height="284"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N11-y9-nvb">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="263"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJL-Mh-Igo">
-                                        <rect key="frame" x="0.0" y="263" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="a67-xN-yOA">
+                                <rect key="frame" x="67" y="245" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.048110781412325165" green="1" blue="0.67702264638897391" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FML-02-jra">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="PrecipitationCell" id="LRA-zC-b3x" customClass="PrecipitationCastIconCell" customModule="Plaskekart_temp_caseinsensitive_rename" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vmd-wA-rg0">
+                                                    <rect key="frame" x="-80" y="-26" width="421" height="447"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="vmd-wA-rg0" firstAttribute="leading" secondItem="LRA-zC-b3x" secondAttribute="leading" constant="5" id="2Ps-l2-o97"/>
+                                            <constraint firstAttribute="trailing" secondItem="vmd-wA-rg0" secondAttribute="trailing" constant="5" id="ESM-At-YpM"/>
+                                            <constraint firstAttribute="bottom" secondItem="vmd-wA-rg0" secondAttribute="bottom" constant="5" id="Jbf-ZP-VdC"/>
+                                            <constraint firstItem="vmd-wA-rg0" firstAttribute="top" secondItem="LRA-zC-b3x" secondAttribute="top" constant="5" id="YKY-NA-ixI"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="vmd-wA-rg0" id="3AZ-BA-gfd"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="d11-7H-jqm" id="g8U-ug-eEh"/>
+                                    <outlet property="delegate" destination="d11-7H-jqm" id="Xi2-pT-k63"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="more" id="jV7-Jj-ycZ"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="NowCastImageView" destination="N11-y9-nvb" id="AKC-sO-G2F"/>
-                        <outlet property="NowCastLabel" destination="QJL-Mh-Igo" id="RKZ-eX-gxn"/>
+                        <outlet property="CollectionView" destination="a67-xN-yOA" id="XbF-DN-YOm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZeF-qH-Xua" userLabel="First Responder" sceneMemberID="firstResponder"/>
