@@ -192,7 +192,7 @@ class NowCastViewController: UIViewController, CLLocationManagerDelegate, UIColl
         debugPrint("//3 collectionview cellforitematindexpath")
 
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! PrecipitationCastIconCell
-        cell.backgroundColor = UIColor.redColor()
+        //cell.backgroundColor = UIColor.redColor()
         // Configure the cell
         let (cast, icon) = self.nowCastForIndexPath(indexPath)
         cell.Timestamp.text = cast.from.description
