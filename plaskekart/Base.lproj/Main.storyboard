@@ -112,7 +112,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="07I-yr-45p">
-                                                    <rect key="frame" x="0.0" y="0.0" width="366" height="407"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="366" height="387"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WeZ-Ns-dr2">
                                                             <rect key="frame" x="0.0" y="0.0" width="38" height="21"/>
@@ -127,13 +127,6 @@
                                                                 <constraint firstAttribute="width" secondItem="vmd-wA-rg0" secondAttribute="height" multiplier="200:200" id="1eg-Xy-j1S"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Precipitation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GvN-82-9Jk">
-                                                            <rect key="frame" x="0.0" y="387" width="96" height="21"/>
-                                                            <color key="backgroundColor" red="1" green="0.81252919569352189" blue="0.15321845184618843" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
@@ -141,7 +134,6 @@
                                         </view>
                                         <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <outlet property="Precipitation" destination="GvN-82-9Jk" id="DKr-SA-ptP"/>
                                             <outlet property="Timestamp" destination="WeZ-Ns-dr2" id="qXZ-hW-tBM"/>
                                             <outlet property="imageView" destination="vmd-wA-rg0" id="3AZ-BA-gfd"/>
                                         </connections>

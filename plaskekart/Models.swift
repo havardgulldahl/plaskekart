@@ -72,6 +72,15 @@ public struct PrecipitationCast {
             throw PrecipitationCastError.PrecipitationDiffers
         }
     }
+    
+    public func humanizeTime() -> String {
+        let formatter = NSDateFormatter()
+        formatter.doesRelativeDateFormatting = true
+        formatter.dateStyle = .ShortStyle
+        formatter.timeStyle = .ShortStyle
+        let dateString = formatter.stringFromDate(self.from)
+        return dateString
+    }
 }
 
 extension NSDate: XMLAttributeDeserializable  {
