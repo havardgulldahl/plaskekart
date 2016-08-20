@@ -117,10 +117,11 @@ class NowCastViewController: UIViewController, CLLocationManagerDelegate, UIColl
                     continue
                 }
                 catch PrecipitationCastError.PrecipitationDiffers {
-                    print ("lastsymbol )")
+                    print ("precipitationdiffers")
+                    debugPrint(symbols[symbols.endIndex-1], c)
                 }
                 catch {
-                    print ("some other error \(error)")
+                    print ("precipitioation appendifequal() some other error \(error)")
                 }
             }
             // no last element found (= empty array)
@@ -138,19 +139,6 @@ class NowCastViewController: UIViewController, CLLocationManagerDelegate, UIColl
     
 
     // MARK: precipitationcast cell
-    func photoForIndexPath(indexPath: NSIndexPath) -> UIImage {
-        if locationCast.precipitationCasts == nil {
-            return UIImage(named: "hail")!
-        }
-        switch locationCast.precipitationCasts![indexPath.section].precipitation.value {
-        case 0.0 :
-            return UIImage(named: "cloud")!
-        default :
-            return UIImage(named: "rain-1")!
-            
-        }
-    }
-    
     func nowCastForIndexPath(indexPath: NSIndexPath) -> (PrecipitationCast, UIImage) {
         var i = UIImage(named: "hail")! // default image
         if locationCast.precipitationCasts == nil {
@@ -180,11 +168,8 @@ class NowCastViewController: UIViewController, CLLocationManagerDelegate, UIColl
     
     //2
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        debugPrint("//2 collectionview numberofofitems")
-        if let c = locationCast.precipitationCasts {
-            return c.count
-        }
-        return 1 // no locatoincasts yet
+
+        return 1 // single column info
     }
     
     //3

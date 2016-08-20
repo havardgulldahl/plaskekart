@@ -12,7 +12,6 @@
 		C2536D691D57C4FC00ECF9FF /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2536D681D57C4FC00ECF9FF /* Kingfisher.framework */; };
 		C2536D6C1D57CA6F00ECF9FF /* NowCast.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2536D6A1D57CA6F00ECF9FF /* NowCast.swift */; };
 		C2536D6D1D57CA6F00ECF9FF /* Radar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2536D6B1D57CA6F00ECF9FF /* Radar.swift */; };
-		C2608BD01D626C7F00EB9D6C /* PrecipitationCastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2608BCF1D626C7F00EB9D6C /* PrecipitationCastViewController.swift */; };
 		C2608BD21D62747800EB9D6C /* PrecipitationCastIconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2608BD11D62747800EB9D6C /* PrecipitationCastIconCell.swift */; };
 		C2608BD41D62791F00EB9D6C /* test_steinkjer.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C2608BD31D62791F00EB9D6C /* test_steinkjer.gpx */; };
 		C26467A01D5601D400AF8A98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C264679F1D5601D400AF8A98 /* AppDelegate.swift */; };
@@ -54,7 +53,6 @@
 		C2536D6B1D57CA6F00ECF9FF /* Radar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Radar.swift; sourceTree = "<group>"; };
 		C2536D6E1D59259100ECF9FF /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Main.strings; sourceTree = "<group>"; };
 		C2536D6F1D59259100ECF9FF /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		C2608BCF1D626C7F00EB9D6C /* PrecipitationCastViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrecipitationCastViewController.swift; sourceTree = "<group>"; };
 		C2608BD11D62747800EB9D6C /* PrecipitationCastIconCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrecipitationCastIconCell.swift; sourceTree = "<group>"; };
 		C2608BD31D62791F00EB9D6C /* test_steinkjer.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test_steinkjer.gpx; sourceTree = SOURCE_ROOT; };
 		C264679C1D5601D400AF8A98 /* Plaskekart.temp_caseinsensitive_rename.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plaskekart.temp_caseinsensitive_rename.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,7 +147,6 @@
 				C2A005CF1D5BF59F007ED8A4 /* LocationViewController.swift */,
 				C26467A31D5601D400AF8A98 /* Main.storyboard */,
 				C2608BD11D62747800EB9D6C /* PrecipitationCastIconCell.swift */,
-				C2608BCF1D626C7F00EB9D6C /* PrecipitationCastViewController.swift */,
 				C26467A61D5601D400AF8A98 /* Assets.xcassets */,
 				C26467A81D5601D400AF8A98 /* LaunchScreen.storyboard */,
 				C26467AB1D5601D400AF8A98 /* Info.plist */,
@@ -303,7 +300,6 @@
 				C2A005CC1D5BF151007ED8A4 /* Models.swift in Sources */,
 				C2A005C21D594E9F007ED8A4 /* NowCastViewController.swift in Sources */,
 				C2A005C61D595786007ED8A4 /* Utils.swift in Sources */,
-				C2608BD01D626C7F00EB9D6C /* PrecipitationCastViewController.swift in Sources */,
 				C2536D6C1D57CA6F00ECF9FF /* NowCast.swift in Sources */,
 				C2A005D01D5BF59F007ED8A4 /* LocationViewController.swift in Sources */,
 				C2536D6D1D57CA6F00ECF9FF /* Radar.swift in Sources */,

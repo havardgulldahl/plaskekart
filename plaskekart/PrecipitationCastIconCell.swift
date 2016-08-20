@@ -12,4 +12,13 @@ class PrecipitationCastIconCell: UICollectionViewCell {
     
     @IBOutlet weak var Timestamp: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    
+    
+    
+    override func prepareForReuse() {
+        self.Timestamp.text = nil
+        self.imageView.image = nil
+        super.prepareForReuse()
+        
+    }
 }
