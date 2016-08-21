@@ -96,7 +96,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="a67-xN-yOA">
-                                <rect key="frame" x="0.0" y="20" width="375" height="578"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FML-02-jra">
                                     <size key="itemSize" width="366" height="407"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -117,6 +117,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WeZ-Ns-dr2">
                                                             <rect key="frame" x="0.0" y="0.0" width="38" height="21"/>
                                                             <color key="backgroundColor" red="1" green="0.0" blue="0.8732334773766377" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <rect key="contentStretch" x="0.0" y="1" width="1" height="1"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
@@ -132,7 +133,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <connections>
                                             <outlet property="Timestamp" destination="WeZ-Ns-dr2" id="qXZ-hW-tBM"/>
                                             <outlet property="imageView" destination="vmd-wA-rg0" id="3AZ-BA-gfd"/>

@@ -74,12 +74,20 @@ public struct PrecipitationCast {
     }
     
     public func humanizeTime() -> String {
-        let formatter = NSDateFormatter()
-        formatter.doesRelativeDateFormatting = true
-        formatter.dateStyle = .ShortStyle
-        formatter.timeStyle = .ShortStyle
-        let dateString = formatter.stringFromDate(self.from)
-        return dateString
+        let formatterFrom = NSDateFormatter()
+        formatterFrom.doesRelativeDateFormatting = true
+        formatterFrom.dateStyle = .ShortStyle
+        formatterFrom.timeStyle = .ShortStyle
+        let dateStringFrom = formatterFrom.stringFromDate(self.from)
+        let form = NSDateComponentsFormatter()
+        form.maximumUnitCount = 2
+        form.unitsStyle = .Full
+        form.allowedUnits = [.Hour, .Minute]
+        let dateStringInterval = form.stringFromDate(self.from, toDate: self.to)!
+        return NSLocalizedString("humanizedTime",
+                                 value:"\(dateStringFrom), for \(dateStringInterval)",
+                                 comment: "time diff")
+        
     }
 }
 
