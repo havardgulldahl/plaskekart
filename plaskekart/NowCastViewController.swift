@@ -14,6 +14,7 @@ import CoreLocation
 class NowCastViewController: UIViewController, CLLocationManagerDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
 
     @IBOutlet weak var CollectionView: UICollectionView!
+    @IBOutlet weak var Summary: UILabel!
 
     var locationManager: CLLocationManager!
     let locationCast = LocationCast.sharedInstance
@@ -130,6 +131,7 @@ class NowCastViewController: UIViewController, CLLocationManagerDelegate, UIColl
         }
         debugPrint(symbols)
         self.locationCast.precipitationCasts = symbols
+        self.Summary.text = self.locationCast.summary()
         // refresh collection view
         dispatch_async(dispatch_get_main_queue(), {
             self.CollectionView.reloadData()
@@ -179,7 +181,7 @@ class NowCastViewController: UIViewController, CLLocationManagerDelegate, UIColl
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! PrecipitationCastIconCell
         // Configure the cell
         let (cast, icon) = self.nowCastForIndexPath(indexPath)
-        cell.Timestamp.text = "\(cast.humanizeTime()): \(cast.precipitation.value) \(cast.precipitation.unit)"
+        cell.Timestamp.text = "\(cast.humanizeTime()):\n\(cast.precipitation.value) \(cast.precipitation.unit)"
         cell.imageView.image = icon
         return cell
     }

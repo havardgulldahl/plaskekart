@@ -76,7 +76,7 @@ public struct PrecipitationCast {
     public func humanizeTime() -> String {
         let formatterFrom = NSDateFormatter()
         formatterFrom.doesRelativeDateFormatting = true
-        formatterFrom.dateStyle = .ShortStyle
+        formatterFrom.dateStyle = .NoStyle
         formatterFrom.timeStyle = .ShortStyle
         let dateStringFrom = formatterFrom.stringFromDate(self.from)
         let form = NSDateComponentsFormatter()
@@ -85,7 +85,7 @@ public struct PrecipitationCast {
         form.allowedUnits = [.Hour, .Minute]
         let dateStringInterval = form.stringFromDate(self.from, toDate: self.to)!
         return NSLocalizedString("humanizedTime",
-                                 value:"\(dateStringFrom), for \(dateStringInterval)",
+                                 value:"\(dateStringFrom) + \(dateStringInterval)",
                                  comment: "time diff")
         
     }
@@ -163,7 +163,29 @@ public class LocationCast {
     var regionRadarMap: NSURL?
     var precipitationCasts: Array<PrecipitationCast>?
     
-
+    public func summary() -> String {
+        if self.nowCasts?.count == 0 {
+            return NSLocalizedString("locationcast_summary_nocasts",
+                                     value: "No casts loaded",
+                                     comment: "summary no casts")
+        }
+        let rain = self.nowCasts!.filter { $0.cast.value > 0.0 }
+        if rain.count == self.nowCasts?.count {
+            // all rain
+            return NSLocalizedString("locationcast_summary_all_rain",
+                                     value: "It's raining cats and dogs",
+                                     comment: "summary rain")
+            
+        } else if rain.count == 0 {
+            // no rain
+            return NSLocalizedString("No rain or snow in sight!",
+                                     comment: "summary no rain")
+            
+        }
+        var r = NSLocalizedString("It's going to be on and off",
+                                  comment: "summary no rain")
+        return r
+    }
 }
 
 
