@@ -39,7 +39,7 @@ func showAlert(message: String, vc: UIViewController, title: String = "Error") {
 
 // modify headers for all HTTP traffic
 let modifiedHTTPHeaders = [
-    "User-Agent": "plaskekart 0.1 http://github.com/havardgulldahl/plaskekart"
+    "User-Agent": "paraplu 0.1 http://github.com/havardgulldahl/paraplu"
 ]
 
 

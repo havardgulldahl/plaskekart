@@ -15,6 +15,7 @@ import Foundation
 import Alamofire
 import SWXMLHash
 
+
 func getCastURL(latitude: String, longitude: String) -> NSURL {
     // get lat+lon and return something like
     // https://api.met.no/weatherapi/nowcast/0.9/?lat=60.10;lon=9.58
@@ -24,6 +25,14 @@ func getCastURL(latitude: String, longitude: String) -> NSURL {
 func getNowCasts(loc: Location, completion: ([NowCast]) -> Void) {
     
     let url = getCastURL(loc.latitude, longitude: loc.longitude)
+    
+    // Creating an Instance of the Alamofire Manager
+    let manager = Manager.sharedInstance
+    
+    // Specifying the Headers we need
+    manager.session.configuration.HTTPAdditionalHeaders = [
+        "User-Agent": "Paraplu 0.1 http://github.com/havardgulldahl/paraplu"
+    ]
     Alamofire.request(.GET, url, parameters: nil)
         .validate()
         .responseString{ (response) -> Void in
