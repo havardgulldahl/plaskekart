@@ -84,7 +84,7 @@ public struct PrecipitationCast {
         form.unitsStyle = .Full
         form.allowedUnits = [.Hour, .Minute]
         let dateStringInterval = form.stringFromDate(self.from, toDate: self.to)!
-        return String.localizedStringWithFormat(NSLocalizedString("From %@ and the next %@", comment:""),
+        return String.localizedStringWithFormat(NSLocalizedString("From %@ and for %@", comment:""),
                                                 dateStringFrom,  dateStringInterval)
         
     }
@@ -164,7 +164,7 @@ public class LocationCast {
     
     public func summary() -> String {
         let form = NSDateComponentsFormatter()
-        form.allowedUnits = [NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day, NSCalendarUnit.Hour, NSCalendarUnit.Minute, NSCalendarUnit.Second]
+        form.allowedUnits = [NSCalendarUnit.Day, NSCalendarUnit.Hour, NSCalendarUnit.Minute]
 
         form.maximumUnitCount = 2
         form.unitsStyle = .SpellOut
@@ -178,23 +178,31 @@ public class LocationCast {
                                      comment: "summary no casts")
         }
         let rain = self.nowCasts!.filter { $0.cast.value > 0.0 }
-        if rain.count == self.nowCasts?.count {
-            // all rain
-            return NSLocalizedString("locationcast_summary_all_rain",
-                                     value: "It's raining cats and dogs",
-                                     comment: "summary rain")
-            
-        } else if rain.count == 0 {
+        if rain.count == 0 {
             // no rain
             return String.localizedStringWithFormat(NSLocalizedString("No rain or snow in sight for the next %@", comment:""),
                                                     dateStringInterval)
         }
+        // find the most rain
+        
+        let maxRain = self.precipitationCasts!.maxElement({ (a,b) -> Bool in
+            return a.precipitation.value < b.precipitation.value
+        })!
+        
+        if rain.count == self.nowCasts?.count {
+            // all rain
+            var r = NSLocalizedString("It's raining cats and dogs", comment:"")
+            r.appendContentsOf(String.localizedStringWithFormat(" — max: %.2f %@",
+                                                                maxRain.precipitation.value,
+                                                                maxRain.precipitation.unit))
+            return r
+        }
+
         var r = String.localizedStringWithFormat(NSLocalizedString("It's going to be on and off the next %@", comment:""),
                                                  dateStringInterval)
-        let maxRain = self.nowCasts!.maxElement({ (a,b) -> Bool in
-            return a.cast.value < b.cast.value
-        })
-        r.appendContentsOf(String.localizedStringWithFormat("— max: %@", maxRain!.cast.value))
+        r.appendContentsOf(String.localizedStringWithFormat(" — max: %.2f %@",
+                                                            maxRain.precipitation.value,
+                                                            maxRain.precipitation.unit))
         return r
     }
 }
