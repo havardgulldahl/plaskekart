@@ -9,7 +9,7 @@
 import XCTest
 //@testable import plaskekart
 
-class plaskekartTests: XCTestCase {
+class parapluTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
