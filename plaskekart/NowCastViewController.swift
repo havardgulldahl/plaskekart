@@ -61,6 +61,7 @@ class NowCastViewController: UIViewController, LocationServiceDelegate, UICollec
             // same spot, abort
             return
         }
+        showAlert(getCastURL(lat, longitude: long).absoluteString, vc: self) // POOR MANS DEBUG!
         let newLoc = Location(latitude: lat, longitude: long)!
         print("updatenewcast: new location: \(newLoc)")
         self.locationCast.loc = newLoc
