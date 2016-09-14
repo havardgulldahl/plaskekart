@@ -69,9 +69,15 @@ class NowCastViewController: UIViewController, LocationServiceDelegate, UICollec
         
     }
     
-    func analyzeCasts(casts: [NowCast]) -> Void {
+    func analyzeCasts(casts: [NowCast], errors: String?) -> Void {
         print("analyzeCasts")
         //debugPrint(casts)
+        if errors != nil {
+            // something's wrong. print errors
+            debugPrint(errors)
+            showAlert(errors!, vc: self)
+            return
+        }
         self.locationCast.nowCasts = casts
         
         
