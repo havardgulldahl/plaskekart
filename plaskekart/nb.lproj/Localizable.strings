@@ -1,0 +1,15 @@
+/* No comment provided by engineer. */
+"From %@ and for %@" = "Fra %1$@ og i %2$@";
+
+/* No comment provided by engineer. */
+"It's going to be on and off the next %@" = "Det er av og på i de neste %@";
+
+/* No comment provided by engineer. */
+"It's raining cats and dogs" = "Det regner i strie strømmer";
+
+/* No comment provided by engineer. */
+"No rain or snow in sight for the next %@" = "Ingen nedbør i sikte i de neste %@";
+
+/* summary no casts */
+"locationcast_summary_nocasts" = "Ingen beregninger lastet";
+
