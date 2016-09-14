@@ -23,7 +23,7 @@ class LocationViewController: UITabBarController {
         print("LocationViewController loaded")
         // Do any additional setup after loading the view.
         //LocationService.sharedInstance.delegate = self
-        LocationService.sharedInstance.startUpdatingLocation()
+        //LocationService.sharedInstance.startUpdatingLocation()
         
     }
 

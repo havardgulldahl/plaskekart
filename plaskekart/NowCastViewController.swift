@@ -33,8 +33,11 @@ class NowCastViewController: UIViewController, LocationServiceDelegate, UICollec
         debugPrint(LocationService.sharedInstance.lastLocation)
         if let loc = LocationService.sharedInstance.lastLocation {
             self.tracingLocation(loc)
+        } else {
+            LocationService.sharedInstance.startUpdatingLocation()
         }
     }
+    
     func tracingLocation(currentLocation: CLLocation){
         
         let latitude = String(format: "%.4f", currentLocation.coordinate.latitude)

@@ -63,6 +63,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         debugPrint(LocationService.sharedInstance.lastLocation)
         if let loc = LocationService.sharedInstance.lastLocation {
             self.tracingLocation(loc)
+        } else {
+            LocationService.sharedInstance.startUpdatingLocation()
         }
     }
     
