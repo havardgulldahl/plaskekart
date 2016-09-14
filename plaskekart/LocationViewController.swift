@@ -22,6 +22,9 @@ class LocationViewController: UITabBarController {
         super.viewDidLoad()
         print("LocationViewController loaded")
         // Do any additional setup after loading the view.
+        //LocationService.sharedInstance.delegate = self
+        LocationService.sharedInstance.startUpdatingLocation()
+        
     }
 
     override func didReceiveMemoryWarning() {

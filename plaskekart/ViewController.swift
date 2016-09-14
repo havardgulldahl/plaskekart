@@ -15,7 +15,7 @@ import Kingfisher
 import Haneke
 
 
-class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, CLLocationManagerDelegate {
+class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, LocationServiceDelegate {
     
     // MARK: Properties from UI
     
@@ -46,33 +46,25 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         // only show progressbar on network activity
         self.NetworkProgress.hidden = true
 
-        // set up location manager (GPS) stuff
-        /*
-        cache.fetch(key: "latlon").onSuccess { data in
-            // we have a cached position, start finding map
-            print("viewcontroller.swift: cached position found: \(data)")
-        }
-         */
-        
-        
-        print("vc: ")
-        debugPrint(locationCast)
-        
-        self.locationManager = CLLocationManager()
-        self.locationManager.requestWhenInUseAuthorization() // TODO: ask nicely first
-        
-        if CLLocationManager.locationServicesEnabled() {
-            self.locationManager.delegate = self
-            self.locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
-            self.locationManager.startUpdatingLocation()
-        }
+        // set up location manager (GPS) Singleton
+
         
         // load initial precipitation map of norway, while waiting for regional info from gps
         ProjectionMap.kf_setImageWithURL(radar_norway,
                                          placeholderImage: UIImage.init(named: "nordland_troms"))
 
     }
-
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        LocationService.sharedInstance.delegate = self
+        //LocationService.sharedInstance.startUpdatingLocation()
+        debugPrint("viewwillappear vc ")
+        debugPrint(LocationService.sharedInstance.lastLocation)
+        if let loc = LocationService.sharedInstance.lastLocation {
+            self.tracingLocation(loc)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -154,13 +146,21 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     */
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error)->Void in
+    // MARK: GPS stuff from LocationServiceDelegate
+    func tracingLocationDidFailWithError(error: NSError) {
+        print("tracing Location Error : \(error.description)")
+    }
+    
+    
+    func tracingLocation(currentLocation: CLLocation) {
+        
+        //self.updateNowCast(latitude, long: longitude)
+        CLGeocoder().reverseGeocodeLocation(currentLocation, completionHandler: {(placemarks, error)->Void in
             if error != nil{
                 print("Reverse geocoder failed with error" + error!.localizedDescription)
                 return
             }
-    
+            
             if placemarks!.count > 0 {
                 let pm = placemarks![0] as CLPlacemark
                 if let area = pm.administrativeArea {
@@ -174,11 +174,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             } else {
                 print("Problem with the data received from geocoder")
             }
-        })}
-    
-    // Stop location updates
-    //self.locationManager.stopUpdatingLocation()
-    
+        })
+        
+    }
+
     func displayLocationInfo(placemark: CLPlacemark) {
         //get reverse geocoded area for our current place, and update with the best map for that area
         print("Updating with the presumed best map for area: \(placemark.administrativeArea)")

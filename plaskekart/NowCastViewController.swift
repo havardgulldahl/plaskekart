@@ -24,11 +24,17 @@ class NowCastViewController: UIViewController, LocationServiceDelegate, UICollec
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // set up location manager (GPS) Singleton
-        LocationService.sharedInstance.delegate = self
-        LocationService.sharedInstance.startUpdatingLocation()
     }
-    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        LocationService.sharedInstance.delegate = self
+        //LocationService.sharedInstance.startUpdatingLocation()
+        debugPrint("viewwillappear nowcast vc ")
+        debugPrint(LocationService.sharedInstance.lastLocation)
+        if let loc = LocationService.sharedInstance.lastLocation {
+            self.tracingLocation(loc)
+        }
+    }
     func tracingLocation(currentLocation: CLLocation){
         
         let latitude = String(format: "%.4f", currentLocation.coordinate.latitude)
