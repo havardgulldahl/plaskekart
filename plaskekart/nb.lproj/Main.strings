@@ -1,1 +1,9 @@
+/* Class = "UIViewController"; title = "RadarMap"; ObjectID = "BYZ-38-t0r"; */
+"BYZ-38-t0r.title" = "RadarKart";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "C2l-fh-PBS"; */
+"C2l-fh-PBS.text" = "Merkelapp";
+
+/* Class = "UILabel"; text = "Time"; ObjectID = "WeZ-Ns-dr2"; */
+"WeZ-Ns-dr2.text" = "Tidspunkt";
 
