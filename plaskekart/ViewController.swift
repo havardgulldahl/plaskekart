@@ -29,6 +29,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     let cache = Cache<NSDictionary>(name: "positions")
     let mapcache = KingfisherManager.sharedManager.cache
     let locationCast = LocationCast.sharedInstance
+    var manualProjectionMap = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,7 +94,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         // The parameter named row and component represents what was selected.
 
         // Stop location updates, since this indicates that the user wants to override the auto map
-        self.locationManager.stopUpdatingLocation()
+        self.manualProjectionMap = true
         
         let val = pickerRows[row]
         print("Got picked value: \(val)")
@@ -181,6 +182,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     func displayLocationInfo(placemark: CLPlacemark) {
         //get reverse geocoded area for our current place, and update with the best map for that area
         print("Updating with the presumed best map for area: \(placemark.administrativeArea)")
+        if self.manualProjectionMap == true {
+            return
+        }
         if placemark.administrativeArea != nil {
             getProjectionMap(getMapForArea(placemark.administrativeArea!))
         }
