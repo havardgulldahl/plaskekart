@@ -50,6 +50,7 @@ class LocationService: NSObject, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers // The accuracy of the location data
         locationManager.distanceFilter = 500 // The minimum distance (measured in meters) a device must move horizontally before an update event is generated.
         locationManager.delegate = self
+        self.startUpdatingLocation()
     }
     
     func startUpdatingLocation() {
