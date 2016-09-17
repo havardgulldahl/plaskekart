@@ -218,7 +218,7 @@ SWIFT_PROTOCOL("_TtP10Kingfisher23ImageDownloaderDelegate_")
 
 /// Delegate class for NSURLSessionTaskDelegate. The session object will hold its delegate until it gets invalidated. If we use ImageDownloader as the session delegate, it will not be released. So we need an additional handler to break the retain cycle.
 SWIFT_CLASS("_TtC10Kingfisher29ImageDownloaderSessionHandler")
-@interface ImageDownloaderSessionHandler : NSObject <NSURLSessionDataDelegate, NSURLSessionDelegate, NSURLSessionTaskDelegate>
+@interface ImageDownloaderSessionHandler : NSObject <NSURLSessionDataDelegate>
 @property (nonatomic, strong) ImageDownloader * _Nullable downloadHolder;
 
 /// This method is exposed since the compiler requests. Do not call it.
@@ -244,15 +244,16 @@ SWIFT_CLASS("_TtC10Kingfisher29ImageDownloaderSessionHandler")
 @end
 
 
-@interface UIActivityIndicatorView (SWIFT_EXTENSION(Kingfisher))
-- (void)kf_startAnimating;
-- (void)kf_stopAnimating;
-@property (nonatomic) CGPoint kf_center;
+@interface UIApplication (SWIFT_EXTENSION(Kingfisher))
++ (UIApplication * _Nullable)kf_sharedApplication;
 @end
 
 
-@interface UIApplication (SWIFT_EXTENSION(Kingfisher))
-+ (UIApplication * _Nullable)kf_sharedApplication;
+@interface UIButton (SWIFT_EXTENSION(Kingfisher))
+@end
+
+
+@interface UIButton (SWIFT_EXTENSION(Kingfisher))
 @end
 
 
@@ -263,14 +264,6 @@ SWIFT_CLASS("_TtC10Kingfisher29ImageDownloaderSessionHandler")
 
 /// Cancel the background image download task bounded to the image view if it is running. Nothing will happen if the downloading has already finished.
 - (void)kf_cancelBackgroundImageDownloadTask;
-@end
-
-
-@interface UIButton (SWIFT_EXTENSION(Kingfisher))
-@end
-
-
-@interface UIButton (SWIFT_EXTENSION(Kingfisher))
 @end
 
 
@@ -302,19 +295,24 @@ SWIFT_CLASS("_TtC10Kingfisher29ImageDownloaderSessionHandler")
 
 
 @interface UIImage (SWIFT_EXTENSION(Kingfisher))
-- (UIImage * _Nonnull)kf_resizeToSize:(CGSize)size contentMode:(UIViewContentMode)contentMode;
-@end
-
-
-@interface UIImage (SWIFT_EXTENSION(Kingfisher))
 + (UIImage * _Nullable)kf_animatedImageWithGIFDataWithGifData:(NSData * _Nonnull)data preloadAll:(BOOL)preloadAll;
 + (UIImage * _Nullable)kf_animatedImageWithGIFDataWithGifData:(NSData * _Nonnull)data scale:(CGFloat)scale duration:(NSTimeInterval)duration preloadAll:(BOOL)preloadAll;
 @end
 
 
 @interface UIImage (SWIFT_EXTENSION(Kingfisher))
+- (UIImage * _Nonnull)kf_resizeToSize:(CGSize)size contentMode:(UIViewContentMode)contentMode;
+@end
+
+
+@interface UIImage (SWIFT_EXTENSION(Kingfisher))
 - (UIImage * _Nullable)kf_decodedImage;
 - (UIImage * _Nullable)kf_decodedImageWithScale:(CGFloat)scale;
+@end
+
+
+@interface UIImage (SWIFT_EXTENSION(Kingfisher))
+@property (nonatomic, readonly) NSInteger kf_imageCost;
 @end
 
 
@@ -326,11 +324,6 @@ SWIFT_CLASS("_TtC10Kingfisher29ImageDownloaderSessionHandler")
 /// \returns  The normalized image with orientation set to up and correct scale.
 - (UIImage * _Nonnull)kf_normalizedImage;
 + (UIImage * _Nullable)kf_animatedImageWithImages:(NSArray<UIImage *> * _Nonnull)images duration:(NSTimeInterval)duration;
-@end
-
-
-@interface UIImage (SWIFT_EXTENSION(Kingfisher))
-@property (nonatomic, readonly) NSInteger kf_imageCost;
 @end
 
 
@@ -350,6 +343,10 @@ SWIFT_CLASS("_TtC10Kingfisher29ImageDownloaderSessionHandler")
 
 
 @interface UIImageView (SWIFT_EXTENSION(Kingfisher))
+@end
+
+
+@interface UIImageView (SWIFT_EXTENSION(Kingfisher))
 - (BOOL)shouldPreloadAllGIF;
 @end
 
@@ -363,11 +360,8 @@ SWIFT_CLASS("_TtC10Kingfisher29ImageDownloaderSessionHandler")
 /// Get the image URL binded to this image view.
 @property (nonatomic, readonly, strong) NSURL * _Nullable kf_webURL;
 
-/// Whether show an animating indicator when the image view is loading an image or not. Default is false.
+/// Whether show an animating activity indicator when the image view is loading an image or not. Default is false.
 @property (nonatomic) BOOL kf_showIndicatorWhenLoading;
-
-/// The indicator view showing when loading. This will be nil if kf_showIndicatorWhenLoading is false. You may want to use this to set the indicator style or color when you set kf_showIndicatorWhenLoading to true.
-@property (nonatomic, readonly, strong) UIActivityIndicatorView * _Nullable kf_indicator;
 @end
 
 #pragma clang diagnostic pop

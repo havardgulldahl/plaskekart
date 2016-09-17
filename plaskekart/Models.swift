@@ -168,9 +168,9 @@ public class LocationCast {
 
         form.maximumUnitCount = 2
         form.unitsStyle = .SpellOut
-        let _first = self.precipitationCasts!.first!
-        let _last = self.precipitationCasts!.last!
-        let dateStringInterval = form.stringFromDate(_first.from, toDate: _last.to)!
+        let _first = self.nowCasts!.first!
+        let _last = self.nowCasts!.last!
+        let dateStringInterval = form.stringFromDate(_first.timeFrom, toDate: _last.timeTo)!
         
         if self.nowCasts?.count == 0 {
             return NSLocalizedString("locationcast_summary_nocasts",
@@ -185,24 +185,24 @@ public class LocationCast {
         }
         // find the most rain
         
-        let maxRain = self.precipitationCasts!.maxElement({ (a,b) -> Bool in
-            return a.precipitation.value < b.precipitation.value
+        let maxRain = self.nowCasts!.maxElement({ (a,b) -> Bool in
+            return a.cast.value < b.cast.value
         })!
         
         if rain.count == self.nowCasts?.count {
             // all rain
             var r = NSLocalizedString("It's raining cats and dogs", comment:"")
             r.appendContentsOf(String.localizedStringWithFormat(" — max: %.2f %@",
-                                                                maxRain.precipitation.value,
-                                                                maxRain.precipitation.unit))
+                                                                maxRain.cast.value,
+                                                                maxRain.cast.unit))
             return r
         }
 
         var r = String.localizedStringWithFormat(NSLocalizedString("It's going to be on and off the next %@", comment:""),
                                                  dateStringInterval)
         r.appendContentsOf(String.localizedStringWithFormat(" — max: %.2f %@",
-                                                            maxRain.precipitation.value,
-                                                            maxRain.precipitation.unit))
+                                                            maxRain.cast.value,
+                                                            maxRain.cast.unit))
         return r
     }
 }

@@ -1,4 +1,6 @@
 github "onevcat/Kingfisher" ~> 2.4
 github "drmohundro/SWXMLHash" ~> 2.5
 github "Alamofire/Alamofire" ~> 3.4
+github "danielgindi/Charts" ~> 2.2.5
+
 
