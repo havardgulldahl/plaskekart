@@ -140,6 +140,16 @@ public struct NowCast: XMLIndexerDeserializable {
    
         )
     }
+    
+    public func minutesFromNow() -> String {
+        let form = NSDateComponentsFormatter()
+        form.maximumUnitCount = 1
+        form.unitsStyle = .Abbreviated
+        form.allowedUnits = [.Minute]
+        let timeStringInterval = form.stringFromDate(NSDate(), toDate: self.timeFrom)
+        return timeStringInterval!
+    }
+
 }
 
 

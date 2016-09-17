@@ -21,7 +21,7 @@ class NowCastViewController: UIViewController, LocationServiceDelegate, ChartVie
     let locationCast = LocationCast.sharedInstance
     override func viewDidLoad() {
         super.viewDidLoad()
-        Chart.noDataText = "You need to provide data for the chart."
+        Chart.noDataText = NSLocalizedString("No live weather data loaded", comment: "barchart says- no data")
         
     }
     override func viewWillAppear(animated: Bool) {
@@ -81,8 +81,16 @@ class NowCastViewController: UIViewController, LocationServiceDelegate, ChartVie
         self.locationCast.nowCasts = casts
         self.Summary.text = self.locationCast.summary()
         
-
-        
+        var dataEntries: [BarChartDataEntry] = []
+        var dataLabels: [String] = []
+        for i in 0..<casts.count {
+            let dataEntry = BarChartDataEntry(value: Double(casts[i].cast.value), xIndex: i)
+            dataEntries.append(dataEntry)
+            dataLabels.append(casts[i].minutesFromNow())
+        }
+        let chartDataSet = BarChartDataSet(yVals: dataEntries, label: "mm/s")
+        let chartData = BarChartData(xVals: dataLabels, dataSet: chartDataSet)
+        Chart.data = chartData
     }
     
 
