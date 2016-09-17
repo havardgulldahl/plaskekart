@@ -21,6 +21,7 @@ class NowCastViewController: UIViewController, LocationServiceDelegate, ChartVie
     let locationCast = LocationCast.sharedInstance
     override func viewDidLoad() {
         super.viewDidLoad()
+        Chart.noDataText = "You need to provide data for the chart."
         
     }
     override func viewWillAppear(animated: Bool) {

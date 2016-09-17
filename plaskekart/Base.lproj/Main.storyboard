@@ -10,7 +10,7 @@
         <!--RadarMap-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="RadarMap" id="BYZ-38-t0r" customClass="ViewController" customModule="Paraplu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="RadarMap" id="BYZ-38-t0r" customClass="ViewController" customModule="Paraplu" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -71,17 +71,23 @@
                         <viewControllerLayoutGuide type="top" id="iaJ-Yo-ECd"/>
                         <viewControllerLayoutGuide type="bottom" id="M4I-KW-kxh"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="5Bb-2a-FEx">
+                    <view key="view" contentMode="TopLeft" id="5Bb-2a-FEx">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3t-jr-7Kj">
-                                <rect key="frame" x="276" y="292" width="42" height="22"/>
-                                <string key="text">This data is not a forecast! It comes straitght from a radar run and is an accurate prediction on the weather, exactly where you are.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="AIu-UM-vZ5">
+                                <rect key="frame" x="13" y="61" width="956" height="21"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3t-jr-7Kj">
+                                        <rect key="frame" x="0.0" y="0.0" width="956" height="21"/>
+                                        <rect key="contentStretch" x="0.050000000000000003" y="0.050000000000000003" width="1" height="1"/>
+                                        <string key="text">This data is not a forecast! It comes straight from a radar and is an accurate prediction on the weather, exactly where you are.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -93,7 +99,7 @@
         <!--NowCast-->
         <scene sceneID="bwh-Br-TwS">
             <objects>
-                <viewController title="NowCast" id="d11-7H-jqm" customClass="NowCastViewController" customModule="Paraplu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="NowCast" id="d11-7H-jqm" customClass="NowCastViewController" customModule="Paraplu" customModuleProvider="plaskekart" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="85A-Lr-ggD"/>
                         <viewControllerLayoutGuide type="bottom" id="uES-TA-rlO"/>
@@ -132,21 +138,21 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rbN-sI-DNs" userLabel="NowCastView" customClass="BarChartView">
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rbN-sI-DNs" userLabel="NowCastView" customClass="BarChartView" customModule="Charts">
                                         <rect key="frame" x="0.0" y="59" width="240" height="128"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="fillEqually" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="y9C-79-zdy">
                                         <rect key="frame" x="0.0" y="191" width="30" height="30"/>
                                         <subviews>
-                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fD3-Fv-Jo1">
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fD3-Fv-Jo1">
                                                 <rect key="frame" x="0.0" y="0.0" width="0.0" height="30"/>
                                                 <state key="normal" title="Details"/>
                                                 <connections>
                                                     <segue destination="H7F-ZS-bhf" kind="showDetail" id="XYr-F9-GxE"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6GD-u5-XCj">
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6GD-u5-XCj">
                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                 <state key="normal" title="Map"/>
                                                 <connections>
@@ -175,7 +181,7 @@
         <!--Now Casts Collection-->
         <scene sceneID="K91-WN-QZt">
             <objects>
-                <collectionViewController id="H7F-ZS-bhf" customClass="NowCastsCollection" sceneMemberID="viewController">
+                <collectionViewController id="H7F-ZS-bhf" customClass="NowCastsCollection" customModule="Paraplu" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="WcQ-IY-Bzl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -186,7 +192,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="fDS-cD-Njl">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="fDS-cD-Njl" customClass="PrecipitationCastIconCell" customModule="Paraplu" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
