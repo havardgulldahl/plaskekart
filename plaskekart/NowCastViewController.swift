@@ -16,12 +16,26 @@ class NowCastViewController: UIViewController, LocationServiceDelegate, ChartVie
 
     @IBOutlet weak var Chart: BarChartView!
     @IBOutlet weak var Summary: UILabel!
+    @IBOutlet weak var Place: UILabel!
+    @IBOutlet weak var Until: UILabel!
 
     var locationManager: CLLocationManager!
     let locationCast = LocationCast.sharedInstance
     override func viewDidLoad() {
         super.viewDidLoad()
         Chart.noDataText = NSLocalizedString("No live weather data loaded", comment: "barchart says- no data")
+        Chart.descriptionText = ""
+        Chart.xAxis.labelPosition = .Bottom
+        Chart.xAxis.drawAxisLineEnabled = false
+        Chart.xAxis.drawGridLinesEnabled = false
+        Chart.xAxis.drawLabelsEnabled = true
+        Chart.drawBarShadowEnabled = false
+        let yaxisLeft = Chart.getAxis(ChartYAxis.AxisDependency.Left)
+        yaxisLeft.drawLabelsEnabled = false
+        //let yaxisRight = Chart.getAxis(ChartYAxis.AxisDependency.Right)
+        //yaxisRight.axisMinValue = Double(0.0)
+        //Chart.getAxis(ChartYAxis.
+        
         
     }
     override func viewWillAppear(animated: Bool) {
@@ -83,13 +97,16 @@ class NowCastViewController: UIViewController, LocationServiceDelegate, ChartVie
         
         var dataEntries: [BarChartDataEntry] = []
         var dataLabels: [String] = []
+        
         for i in 0..<casts.count {
             let dataEntry = BarChartDataEntry(value: Double(casts[i].cast.value), xIndex: i)
             dataEntries.append(dataEntry)
             dataLabels.append(casts[i].minutesFromNow())
         }
-        let chartDataSet = BarChartDataSet(yVals: dataEntries, label: "mm/s")
+        let chartDataSet = BarChartDataSet(yVals: dataEntries, label: NSLocalizedString("mm per hour", comment: "mm/h"))
         let chartData = BarChartData(xVals: dataLabels, dataSet: chartDataSet)
+        chartData.setDrawValues(false)
+        debugPrint("set chartdata xvalcount:", chartData.xValCount)
         Chart.data = chartData
     }
     
