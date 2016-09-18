@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="d11-7H-jqm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="K3z-6l-F4k">
     <dependencies>
         <deployment version="2304" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -16,10 +16,10 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2Sa-SN-fRx">
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2Sa-SN-fRx">
                                 <rect key="frame" x="16" y="20" width="343" height="563"/>
                                 <subviews>
                                     <imageView autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="332" placeholderIntrinsicHeight="345" image="nordland_troms" translatesAutoresizingMaskIntoConstraints="NO" id="RtA-zW-OSH" userLabel="ProjectionMap">
@@ -61,7 +61,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="604.5" y="880.5"/>
+            <point key="canvasLocation" x="936.5" y="845.5"/>
         </scene>
         <!--NowCast explained-->
         <scene sceneID="MZZ-EI-bJ7">
@@ -94,7 +94,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i4f-7E-lk3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="17" y="-131"/>
+            <point key="canvasLocation" x="1029" y="1757"/>
         </scene>
         <!--NowCast-->
         <scene sceneID="bwh-Br-TwS">
@@ -109,31 +109,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="oR6-py-dXj">
-                                <rect key="frame" x="0.0" y="20" width="240" height="221"/>
+                                <rect key="frame" x="0.0" y="64" width="240" height="221"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="M3C-4b-jKO">
-                                        <rect key="frame" x="0.0" y="0.0" width="224" height="30"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="M3C-4b-jKO">
+                                        <rect key="frame" x="0.0" y="0.0" width="199" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Just now:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="az0-u3-0Qh" userLabel="_live_label">
-                                                <rect key="frame" x="0.0" y="5" width="74" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Live:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="az0-u3-0Qh" userLabel="_live_label">
+                                                <rect key="frame" x="0.0" y="5" width="36" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="&lt;Place&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BhG-x8-Szl" userLabel="Place">
-                                                <rect key="frame" x="74" y="5" width="64" height="21"/>
+                                                <rect key="frame" x="40" y="5" width="64" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="&lt;Until&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqO-Vc-7In" userLabel="Until">
-                                                <rect key="frame" x="137" y="5" width="57" height="21"/>
+                                                <rect key="frame" x="108" y="5" width="57" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wfe-Wi-VYl" userLabel="Tooltip">
-                                                <rect key="frame" x="194" y="0.0" width="30" height="30"/>
+                                                <rect key="frame" x="169" y="0.0" width="30" height="30"/>
                                                 <state key="normal" title="?"/>
                                                 <connections>
                                                     <segue destination="yfx-i1-yl7" kind="popoverPresentation" popoverAnchorView="Wfe-Wi-VYl" id="SXb-3c-27N">
@@ -150,7 +150,7 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rbN-sI-DNs" userLabel="NowCastView" customClass="BarChartView" customModule="Charts">
+                                    <view contentMode="scaleAspectFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rbN-sI-DNs" userLabel="NowCastView" customClass="BarChartView" customModule="Charts">
                                         <rect key="frame" x="0.0" y="59" width="240" height="128"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
@@ -179,7 +179,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="more" id="jV7-Jj-ycZ"/>
+                    <navigationItem key="navigationItem" id="Z4v-k8-a7R"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="Chart" destination="rbN-sI-DNs" id="ItS-oH-xPc"/>
@@ -190,7 +190,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZeF-qH-Xua" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-503.5" y="812.5"/>
+            <point key="canvasLocation" x="308.5" y="812.5"/>
         </scene>
         <!--Now Casts Collection-->
         <scene sceneID="K91-WN-QZt">
@@ -225,6 +225,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GFt-CS-2Sl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="66" y="1646"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="HLh-7C-yR6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="K3z-6l-F4k" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="more" id="jV7-Jj-ycZ"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4PC-2j-eCd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="d11-7H-jqm" kind="relationship" relationship="rootViewController" id="RNk-db-ltn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GMh-bK-CJo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-504" y="812"/>
         </scene>
     </scenes>
     <resources>

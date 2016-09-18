@@ -29,13 +29,14 @@ class NowCastViewController: UIViewController, LocationServiceDelegate, ChartVie
         Chart.xAxis.drawAxisLineEnabled = false
         Chart.xAxis.drawGridLinesEnabled = false
         Chart.xAxis.drawLabelsEnabled = true
-        Chart.drawBarShadowEnabled = false
-        let yaxisLeft = Chart.getAxis(ChartYAxis.AxisDependency.Left)
-        yaxisLeft.drawLabelsEnabled = false
-        //let yaxisRight = Chart.getAxis(ChartYAxis.AxisDependency.Right)
-        //yaxisRight.axisMinValue = Double(0.0)
-        //Chart.getAxis(ChartYAxis.
-        
+        Chart.legend.enabled = false
+        // Left y axis
+        Chart.leftAxis.drawLabelsEnabled = false
+        Chart.leftAxis.drawGridLinesEnabled = false
+        Chart.leftAxis.drawAxisLineEnabled = false
+        // right y axis
+        Chart.rightAxis.drawAxisLineEnabled = false
+        Chart.animate(yAxisDuration: 1.5, easingOption: .EaseInOutQuart)
         
     }
     override func viewWillAppear(animated: Bool) {
