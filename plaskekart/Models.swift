@@ -149,6 +149,14 @@ public struct NowCast: XMLIndexerDeserializable {
         let timeStringInterval = form.stringFromDate(NSDate(), toDate: self.timeFrom)
         return timeStringInterval!
     }
+    
+    public func humanizeFrom() -> String {
+        let dateFormatter = NSDateFormatter()
+        //the "M/d/yy, H:mm" is put together from the Symbol Table
+        dateFormatter.dateFormat = "H:mm"
+        return dateFormatter.stringFromDate(self.timeFrom)
+        
+    }
 
 }
 
@@ -178,10 +186,6 @@ public class LocationCast {
 
         form.maximumUnitCount = 2
         form.unitsStyle = .SpellOut
-        let _first = self.nowCasts!.first!
-        let _last = self.nowCasts!.last!
-        let dateStringInterval = form.stringFromDate(_first.timeFrom, toDate: _last.timeTo)!
-        
         if self.nowCasts?.count == 0 {
             return NSLocalizedString("locationcast_summary_nocasts",
                                      value: "No casts loaded",
@@ -190,8 +194,7 @@ public class LocationCast {
         let rain = self.nowCasts!.filter { $0.cast.value > 0.0 }
         if rain.count == 0 {
             // no rain
-            return String.localizedStringWithFormat(NSLocalizedString("No rain or snow in sight for the next %@", comment:""),
-                                                    dateStringInterval)
+            return NSLocalizedString("No precipitation in sight", comment:"")
         }
         // find the most rain
         
@@ -199,20 +202,23 @@ public class LocationCast {
             return a.cast.value < b.cast.value
         })!
         
+        let peak = String.localizedStringWithFormat(NSLocalizedString(" — peak: %.2f %@", comment: "peak"),
+                                                    maxRain.cast.value,
+                                                    maxRain.cast.unit)
+        
         if rain.count == self.nowCasts?.count {
             // all rain
             var r = NSLocalizedString("It's raining cats and dogs", comment:"")
-            r.appendContentsOf(String.localizedStringWithFormat(" — max: %.2f %@",
-                                                                maxRain.cast.value,
-                                                                maxRain.cast.unit))
+            r.appendContentsOf(peak)
             return r
         }
+        
+        // TODO: is the rain going away after some time?
+        // TODO: how heavy is it? 
+        // TODO: do we have some time before it starts to rain?
 
-        var r = String.localizedStringWithFormat(NSLocalizedString("It's going to be on and off the next %@", comment:""),
-                                                 dateStringInterval)
-        r.appendContentsOf(String.localizedStringWithFormat(" — max: %.2f %@",
-                                                            maxRain.cast.value,
-                                                            maxRain.cast.unit))
+        var r = NSLocalizedString("It's going to be on and off", comment:"")
+        r.appendContentsOf(peak)
         return r
     }
 }

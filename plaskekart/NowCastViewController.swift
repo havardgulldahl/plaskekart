@@ -56,8 +56,20 @@ class NowCastViewController: UIViewController, LocationServiceDelegate, ChartVie
         let latitude = String(format: "%.4f", currentLocation.coordinate.latitude)
         let longitude = String(format: "%.4f", currentLocation.coordinate.longitude)
         
+        
         self.updateNowCast(latitude, long: longitude)
-    
+        reverseGeocode(currentLocation, completion: {(placemark, errors)->Void in
+            if let place = placemark?.name {
+                self.Place.text = place
+            } else {
+                print("no place name retrieved from geocoder")
+                if let locality = placemark?.locality {
+                    self.Place.text = locality
+                } else {
+                    self.Place.text = NSLocalizedString("Unknown place", comment: "no locality from geoocoder")
+                }
+            }
+        })
     }
     
     func tracingLocationDidFailWithError(error: NSError) {
@@ -101,13 +113,24 @@ class NowCastViewController: UIViewController, LocationServiceDelegate, ChartVie
         for i in 0..<casts.count {
             let dataEntry = BarChartDataEntry(value: Double(casts[i].cast.value), xIndex: i)
             dataEntries.append(dataEntry)
-            dataLabels.append(casts[i].minutesFromNow())
+            if i==0 {
+                // first entry by timestamp
+                dataLabels.append(casts[i].humanizeFrom())
+            } else {
+                // the rest in minutes, relatively from now
+                dataLabels.append(casts[i].minutesFromNow())
+            }
         }
         let chartDataSet = BarChartDataSet(yVals: dataEntries, label: NSLocalizedString("mm per hour", comment: "mm/h"))
         let chartData = BarChartData(xVals: dataLabels, dataSet: chartDataSet)
         chartData.setDrawValues(false)
         debugPrint("set chartdata xvalcount:", chartData.xValCount)
         Chart.data = chartData
+        if let _last = casts.last {
+            let _minutes = _last.minutesFromNow()
+            Until.text = String.localizedStringWithFormat(NSLocalizedString("The next %@", comment: "the next x min"),
+                                                          _minutes)
+        }
     }
     
 

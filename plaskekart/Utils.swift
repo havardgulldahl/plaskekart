@@ -8,6 +8,8 @@
 
 import UIKit
 import Haneke
+import CoreLocation
+
 
 
 // MARK: add type support for NSDictionary to Haneke cache, for storing latlon
@@ -42,5 +44,22 @@ let modifiedHTTPHeaders = [
     "User-Agent": "paraplu http://github.com/havardgulldahl/paraplu"
 ]
 
+func reverseGeocode(location: CLLocation, completion: (CLPlacemark?, errors: String?) -> Void) {
+    CLGeocoder().reverseGeocodeLocation(location, completionHandler: {(placemarks, error)->Void in
+        if error != nil{
+            print("Reverse geocoder failed with error" + error!.localizedDescription)
+            completion (nil, errors: error?.localizedDescription)
+            return
+        }
+        
+        if placemarks!.count > 0 {
+            let pm = placemarks![0] as CLPlacemark
+            completion(pm, errors: nil)
+        } else {
+            print("Problem with the data received from geocoder")
+        }
+    })
+    
+}
 
 
