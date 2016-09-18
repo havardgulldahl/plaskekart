@@ -5,12 +5,13 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
-        <!--RadarMap-->
+        <!--Radar Map-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="RadarMap" id="BYZ-38-t0r" customClass="ViewController" customModule="Paraplu" sceneMemberID="viewController">
+                <viewController title="Radar Map" id="BYZ-38-t0r" customClass="ViewController" customModule="Paraplu" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -19,8 +20,8 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2Sa-SN-fRx">
-                                <rect key="frame" x="16" y="20" width="343" height="563"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2Sa-SN-fRx">
+                                <rect key="frame" x="16" y="0.0" width="343" height="563"/>
                                 <subviews>
                                     <imageView autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="332" placeholderIntrinsicHeight="345" image="nordland_troms" translatesAutoresizingMaskIntoConstraints="NO" id="RtA-zW-OSH" userLabel="ProjectionMap">
                                         <rect key="frame" x="6" y="0.0" width="331" height="345"/>
@@ -63,30 +64,35 @@
             </objects>
             <point key="canvasLocation" x="936.5" y="845.5"/>
         </scene>
-        <!--NowCast explained-->
+        <!--About-->
         <scene sceneID="MZZ-EI-bJ7">
             <objects>
-                <viewController title="NowCast explained" id="yfx-i1-yl7" sceneMemberID="viewController">
+                <viewController title="About" id="yfx-i1-yl7" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iaJ-Yo-ECd"/>
                         <viewControllerLayoutGuide type="bottom" id="M4I-KW-kxh"/>
                     </layoutGuides>
-                    <view key="view" contentMode="TopLeft" id="5Bb-2a-FEx">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <view key="view" contentMode="scaleAspectFill" id="5Bb-2a-FEx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="AIu-UM-vZ5">
-                                <rect key="frame" x="13" y="61" width="956" height="21"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="AIu-UM-vZ5">
+                                <rect key="frame" x="0.0" y="72" width="964" height="61"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3t-jr-7Kj">
-                                        <rect key="frame" x="0.0" y="0.0" width="956" height="21"/>
-                                        <rect key="contentStretch" x="0.050000000000000003" y="0.050000000000000003" width="1" height="1"/>
-                                        <string key="text">This data is not a forecast! It comes straight from a radar and is an accurate prediction on the weather, exactly where you are.</string>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="natural" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3t-jr-7Kj">
+                                        <rect key="frame" x="0.0" y="0.0" width="956" height="61"/>
+                                        <string key="text">This data is not a forecast. It comes straight from a radar and is an accurate prediction on the weather, exactly where you are.
+
+Data by met.no</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="b3t-jr-7Kj" secondAttribute="trailing" constant="8" id="6WM-wn-vEY"/>
+                                    <constraint firstItem="b3t-jr-7Kj" firstAttribute="leading" secondItem="AIu-UM-vZ5" secondAttribute="leading" constant="8" id="pIl-kf-9EV"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -94,7 +100,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i4f-7E-lk3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1029" y="1757"/>
+            <point key="canvasLocation" x="1029" y="1786"/>
         </scene>
         <!--NowCast-->
         <scene sceneID="bwh-Br-TwS">
@@ -108,78 +114,81 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="oR6-py-dXj">
-                                <rect key="frame" x="0.0" y="64" width="240" height="221"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="equalSpacing" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="oR6-py-dXj">
+                                <rect key="frame" x="0.0" y="72" width="159" height="326"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="M3C-4b-jKO">
-                                        <rect key="frame" x="0.0" y="0.0" width="199" height="30"/>
+                                    <stackView opaque="NO" contentMode="TopLeft" ambiguous="YES" misplaced="YES" distribution="fillProportionally" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="M3C-4b-jKO">
+                                        <rect key="frame" x="0.0" y="0.0" width="159" height="21"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Live:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="az0-u3-0Qh" userLabel="_live_label">
-                                                <rect key="frame" x="0.0" y="5" width="36" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="az0-u3-0Qh" userLabel="_live_label">
+                                                <rect key="frame" x="0.0" y="0.0" width="32" height="21"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Live">
+                                                        <attributes>
+                                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <font key="NSFont" size="17" name="HelveticaNeue-MediumItalic"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="&lt;Place&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BhG-x8-Szl" userLabel="Place">
-                                                <rect key="frame" x="40" y="5" width="64" height="21"/>
+                                                <rect key="frame" x="36" y="0.0" width="64" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="&lt;Until&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqO-Vc-7In" userLabel="Until">
-                                                <rect key="frame" x="108" y="5" width="57" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqO-Vc-7In" userLabel="Until">
+                                                <rect key="frame" x="104" y="0.0" width="56" height="21"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="&lt;Until&gt;">
+                                                        <attributes>
+                                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wfe-Wi-VYl" userLabel="Tooltip">
-                                                <rect key="frame" x="169" y="0.0" width="30" height="30"/>
-                                                <state key="normal" title="?"/>
-                                                <connections>
-                                                    <segue destination="yfx-i1-yl7" kind="popoverPresentation" popoverAnchorView="Wfe-Wi-VYl" id="SXb-3c-27N">
-                                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                                    </segue>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="&lt;nowCastSummary&gt;" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2l-fh-PBS">
-                                        <rect key="frame" x="0.0" y="34" width="161" height="21"/>
+                                        <rect key="frame" x="0.0" y="33" width="159" height="41"/>
                                         <color key="backgroundColor" red="1" green="0.70460878275257277" blue="0.9568149065466599" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleAspectFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rbN-sI-DNs" userLabel="NowCastView" customClass="BarChartView" customModule="Charts">
-                                        <rect key="frame" x="0.0" y="59" width="240" height="128"/>
+                                    <view contentMode="left" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rbN-sI-DNs" userLabel="NowCastView" customClass="BarChartView" customModule="Charts">
+                                        <rect key="frame" x="0.0" y="86" width="159" height="240"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="fillEqually" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="y9C-79-zdy">
-                                        <rect key="frame" x="0.0" y="191" width="30" height="30"/>
-                                        <subviews>
-                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fD3-Fv-Jo1">
-                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="30"/>
-                                                <state key="normal" title="Details"/>
-                                                <connections>
-                                                    <segue destination="H7F-ZS-bhf" kind="showDetail" id="XYr-F9-GxE"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6GD-u5-XCj">
-                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                                <state key="normal" title="Map"/>
-                                                <connections>
-                                                    <segue destination="BYZ-38-t0r" kind="show" id="rMV-Nb-zDj"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.81252919570000004" blue="0.15321845179999999" alpha="1" colorSpace="calibratedRGB"/>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Z4v-k8-a7R"/>
+                    <navigationItem key="navigationItem" id="Z4v-k8-a7R">
+                        <leftBarButtonItems>
+                            <barButtonItem title="Map" id="5jB-4y-sIo">
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="85e-A4-SgJ"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Share" id="YpL-HN-LIq"/>
+                            <barButtonItem enabled="NO" title="Details" id="sfQ-yN-YbQ">
+                                <connections>
+                                    <segue destination="H7F-ZS-bhf" kind="show" id="q6l-rL-xGD"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" title="About" id="Oyg-w2-DWX">
+                            <connections>
+                                <segue destination="yfx-i1-yl7" kind="show" id="YYS-ct-6OF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="Chart" destination="rbN-sI-DNs" id="ItS-oH-xPc"/>
@@ -207,7 +216,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="fDS-cD-Njl" customClass="PrecipitationCastIconCell" customModule="Paraplu" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <rect key="frame" x="0.0" y="64" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
