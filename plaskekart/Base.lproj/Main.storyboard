@@ -114,53 +114,57 @@ Data by met.no</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="equalSpacing" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="oR6-py-dXj">
-                                <rect key="frame" x="0.0" y="72" width="159" height="326"/>
+                            <stackView opaque="NO" contentMode="TopLeft" ambiguous="YES" misplaced="YES" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="oR6-py-dXj">
+                                <rect key="frame" x="0.0" y="72" width="327" height="370"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="TopLeft" ambiguous="YES" misplaced="YES" distribution="fillProportionally" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="M3C-4b-jKO">
-                                        <rect key="frame" x="0.0" y="0.0" width="159" height="21"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="az0-u3-0Qh" userLabel="_live_label">
-                                                <rect key="frame" x="0.0" y="0.0" width="32" height="21"/>
-                                                <attributedString key="attributedText">
-                                                    <fragment content="Live">
-                                                        <attributes>
-                                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <font key="NSFont" size="17" name="HelveticaNeue-MediumItalic"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="&lt;Place&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BhG-x8-Szl" userLabel="Place">
-                                                <rect key="frame" x="36" y="0.0" width="64" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqO-Vc-7In" userLabel="Until">
-                                                <rect key="frame" x="104" y="0.0" width="56" height="21"/>
-                                                <attributedString key="attributedText">
-                                                    <fragment content="&lt;Until&gt;">
-                                                        <attributes>
-                                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="az0-u3-0Qh" userLabel="_live_label">
+                                        <rect key="frame" x="0.0" y="0.0" width="327" height="21"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Now, in">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue-MediumItalic"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BhG-x8-Szl" userLabel="Place">
+                                        <rect key="frame" x="0.0" y="33" width="327" height="21"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="&lt;Place&gt;">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqO-Vc-7In" userLabel="Until">
+                                        <rect key="frame" x="0.0" y="65" width="327" height="20"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="&lt;Until&gt;">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="&lt;nowCastSummary&gt;" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2l-fh-PBS">
-                                        <rect key="frame" x="0.0" y="33" width="159" height="41"/>
+                                        <rect key="frame" x="0.0" y="97" width="327" height="21"/>
                                         <color key="backgroundColor" red="1" green="0.70460878275257277" blue="0.9568149065466599" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="left" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rbN-sI-DNs" userLabel="NowCastView" customClass="BarChartView" customModule="Charts">
-                                        <rect key="frame" x="0.0" y="86" width="159" height="240"/>
+                                        <rect key="frame" x="0.0" y="130" width="327" height="240"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
@@ -168,6 +172,10 @@ Data by met.no</string>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="oR6-py-dXj" firstAttribute="leading" secondItem="iH8-2p-Qfg" secondAttribute="leadingMargin" constant="8" id="S83-qj-gBq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oR6-py-dXj" secondAttribute="trailing" constant="8" id="gRg-vM-00y"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Z4v-k8-a7R">
                         <leftBarButtonItems>
