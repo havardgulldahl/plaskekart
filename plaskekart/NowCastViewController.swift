@@ -128,7 +128,7 @@ class NowCastViewController: UIViewController, LocationServiceDelegate, ChartVie
         debugPrint("set chartdata xvalcount:", chartData.xValCount)
         Chart.data = chartData
         if let _last = casts.last {
-            let _minutes = _last.minutesFromNow()
+            let _minutes = minutesFrom(_last.timeTo, style: NSDateComponentsFormatterUnitsStyle.Full)
             Until.text = String.localizedStringWithFormat(NSLocalizedString("The next %@", comment: "the next x min"),
                                                           _minutes)
         }

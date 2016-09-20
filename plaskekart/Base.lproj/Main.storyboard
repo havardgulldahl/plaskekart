@@ -115,36 +115,34 @@ Data by met.no</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="TopLeft" ambiguous="YES" misplaced="YES" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="oR6-py-dXj">
-                                <rect key="frame" x="0.0" y="72" width="327" height="370"/>
+                                <rect key="frame" x="0.0" y="72" width="327" height="337"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="az0-u3-0Qh" userLabel="_live_label">
+                                    <stackView opaque="NO" contentMode="TopLeft" ambiguous="YES" misplaced="YES" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aoz-ze-Sca">
                                         <rect key="frame" x="0.0" y="0.0" width="327" height="21"/>
-                                        <attributedString key="attributedText">
-                                            <fragment content="Now, in">
-                                                <attributes>
-                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <font key="NSFont" size="17" name="HelveticaNeue-MediumItalic"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BhG-x8-Szl" userLabel="Place">
-                                        <rect key="frame" x="0.0" y="33" width="327" height="21"/>
-                                        <attributedString key="attributedText">
-                                            <fragment content="&lt;Place&gt;">
-                                                <attributes>
-                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <font key="NSFont" size="17" name="HelveticaNeue-Bold"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Details for" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yeG-Vk-1Yg">
+                                                <rect key="frame" x="0.0" y="0.0" width="78" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BhG-x8-Szl" userLabel="Place">
+                                                <rect key="frame" x="262" y="0.0" width="66" height="21"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="&lt;Place&gt;">
+                                                        <attributes>
+                                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <font key="NSFont" size="17" name="HelveticaNeue-Bold"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqO-Vc-7In" userLabel="Until">
-                                        <rect key="frame" x="0.0" y="65" width="327" height="20"/>
+                                        <rect key="frame" x="0.0" y="33" width="327" height="20"/>
                                         <attributedString key="attributedText">
                                             <fragment content="&lt;Until&gt;">
                                                 <attributes>
@@ -157,14 +155,14 @@ Data by met.no</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="&lt;nowCastSummary&gt;" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2l-fh-PBS">
-                                        <rect key="frame" x="0.0" y="97" width="327" height="21"/>
+                                        <rect key="frame" x="0.0" y="65" width="327" height="21"/>
                                         <color key="backgroundColor" red="1" green="0.70460878275257277" blue="0.9568149065466599" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="left" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rbN-sI-DNs" userLabel="NowCastView" customClass="BarChartView" customModule="Charts">
-                                        <rect key="frame" x="0.0" y="130" width="327" height="240"/>
+                                        <rect key="frame" x="0.0" y="97" width="327" height="240"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
@@ -184,18 +182,21 @@ Data by met.no</string>
                                     <segue destination="BYZ-38-t0r" kind="show" id="85e-A4-SgJ"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Share" id="YpL-HN-LIq"/>
+                            <barButtonItem title="About" id="Oyg-w2-DWX">
+                                <connections>
+                                    <segue destination="yfx-i1-yl7" kind="show" id="YYS-ct-6OF"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem enabled="NO" title="Details" id="sfQ-yN-YbQ">
                                 <connections>
                                     <segue destination="H7F-ZS-bhf" kind="show" id="q6l-rL-xGD"/>
                                 </connections>
                             </barButtonItem>
                         </leftBarButtonItems>
-                        <barButtonItem key="rightBarButtonItem" title="About" id="Oyg-w2-DWX">
-                            <connections>
-                                <segue destination="yfx-i1-yl7" kind="show" id="YYS-ct-6OF"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="refresh" id="o9Y-vR-raw"/>
+                            <barButtonItem systemItem="action" id="YpL-HN-LIq"/>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
