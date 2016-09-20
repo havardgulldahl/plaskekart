@@ -160,6 +160,18 @@ public struct NowCast: XMLIndexerDeserializable {
 
 }
 
+public func minutesFrom(from: NSDate, to: NSDate? = nil, style: NSDateComponentsFormatterUnitsStyle? = nil) -> String {
+    let too = to ?? NSDate()
+    
+    let form = NSDateComponentsFormatter()
+    form.maximumUnitCount = 1
+    form.unitsStyle = style ?? .Short
+    form.allowedUnits = [.Minute]
+    let timeStringInterval = form.stringFromDate(too, toDate: from) // yes, the to-from order is correct
+    return timeStringInterval!
+
+}
+
 
 public class LocationCast {
     class var sharedInstance: LocationCast {
@@ -247,8 +259,8 @@ public class LocationCast {
             return r
         } else {
             // it's not raining, now, but it will in a while
-            var rainStarts = ""
-            var rainEnds = ""
+            var rainStarts: NSDate? = nil
+            var rainEnds: NSDate? = nil
             var rainFlag: Bool = false
             for c in nowCasts! {
                 // find out when the rain stops
@@ -256,7 +268,7 @@ public class LocationCast {
                     // not raining
                     if rainFlag == true {
                         // this is the end of the rain
-                        rainEnds = c.minutesFromNow()
+                        rainEnds = c.timeTo
                         rainFlag = false
                     } else {
                         continue
@@ -268,7 +280,7 @@ public class LocationCast {
                         continue
                     } else {
                         // this is the start of the rain
-                        rainStarts = c.minutesFromNow()
+                        rainStarts = c.timeFrom
                         rainFlag = true
                     }
                     
@@ -276,18 +288,19 @@ public class LocationCast {
             }
             var r = String.localizedStringWithFormat(NSLocalizedString("We will have %@ in %@ (peak: %@), ", comment: "raining now"),
                                                      heaviness,
-                                                     rainStarts,
+                                                     minutesFrom(rainStarts!),
                                                      peak
                                                      )
             var endString = ""
-            if rainEnds == "" {
+            if rainEnds == nil  {
                 // it will rain for as long as we have data
-                rainEnds = nowCasts!.last!.minutesFromNow()
                 endString = NSLocalizedString("and it will continue for at least %@", comment: "continues beyond data")
+                r += String.localizedStringWithFormat(endString, minutesFrom(nowCasts!.last!.timeTo))
             } else {
-                endString = NSLocalizedString("which ends in %@", comment: "ends at this duration")
+                let dur = minutesFrom(rainEnds!, to: rainStarts!)
+                endString = NSLocalizedString("and it will last for %@", comment: "duration")
+                r += String.localizedStringWithFormat(endString, dur)
             }
-            r += String.localizedStringWithFormat(endString, rainEnds)
             return r
             
         }
