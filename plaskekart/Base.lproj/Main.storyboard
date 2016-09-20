@@ -194,8 +194,16 @@ Data by met.no</string>
                             </barButtonItem>
                         </leftBarButtonItems>
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="refresh" id="o9Y-vR-raw"/>
-                            <barButtonItem systemItem="action" id="YpL-HN-LIq"/>
+                            <barButtonItem systemItem="refresh" id="o9Y-vR-raw">
+                                <connections>
+                                    <action selector="Refresh:" destination="d11-7H-jqm" id="oBa-eO-vRe"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="action" id="YpL-HN-LIq">
+                                <connections>
+                                    <action selector="Share:" destination="d11-7H-jqm" id="a69-2q-0f4"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>

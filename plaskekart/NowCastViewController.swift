@@ -18,7 +18,41 @@ class NowCastViewController: UIViewController, LocationServiceDelegate, ChartVie
     @IBOutlet weak var Summary: UILabel!
     @IBOutlet weak var Place: UILabel!
     @IBOutlet weak var Until: UILabel!
-
+    @IBAction func Share(sender: AnyObject) {
+        debugPrint("Sharing nowcast")
+        let nowcast: String = self.locationCast.summary()
+        let secondActivityItem : NSURL = NSURL(string: "http://lurtgjort.no")!
+        // If you want to put an image
+        //let image : UIImage = UIImage(named: "image.jpg")!
+        
+        let activityViewController : UIActivityViewController = UIActivityViewController(
+            activityItems: [nowcast, secondActivityItem], applicationActivities: nil)
+        //activityItems: [firstActivityItem, secondActivityItem, image], applicationActivities: nil)
+        
+        // This lines is for the popover you need to show in iPad
+        activityViewController.popoverPresentationController?.sourceView = (sender as! UIButton)
+        
+        // This line remove the arrow of the popover to show in iPad
+        activityViewController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection()
+        activityViewController.popoverPresentationController?.sourceRect = CGRect(x: 150, y: 150, width: 0, height: 0)
+        
+        // Anything you want to exclude
+        activityViewController.excludedActivityTypes = [
+            UIActivityTypePostToWeibo,
+            UIActivityTypePrint,
+            UIActivityTypeAssignToContact,
+            UIActivityTypeSaveToCameraRoll,
+            UIActivityTypeAddToReadingList,
+            UIActivityTypePostToFlickr,
+            UIActivityTypePostToVimeo,
+            UIActivityTypePostToTencentWeibo
+        ]
+        
+        self.presentViewController(activityViewController, animated: true, completion: nil)
+    }
+    @IBAction func Refresh(sender: AnyObject) {
+        debugPrint("refreshing nowcast")
+    }
     var locationManager: CLLocationManager!
     let locationCast = LocationCast.sharedInstance
     override func viewDidLoad() {
