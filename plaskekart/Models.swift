@@ -202,20 +202,97 @@ public class LocationCast {
             return a.cast.value < b.cast.value
         })!
         
-        let peak = String.localizedStringWithFormat(NSLocalizedString(" — peak: %.2f %@", comment: "peak"),
+        let peak = String.localizedStringWithFormat(NSLocalizedString("%.2f %@", comment: "peak"),
                                                     maxRain.cast.value,
                                                     maxRain.cast.unit)
         
         if rain.count == self.nowCasts?.count {
             // all rain
-            var r = NSLocalizedString("It's raining cats and dogs", comment:"")
-            r.appendContentsOf(peak)
+            var r = NSLocalizedString("It's raining cats and dogs — peak:", comment:"")
+            r += peak
             return r
         }
         
-        // TODO: is the rain going away after some time?
-        // TODO: how heavy is it? 
-        // TODO: do we have some time before it starts to rain?
+        let rainNow = self.nowCasts!.first!.cast.value > 0.0
+        // classify rain
+        // see https://en.wikipedia.org/wiki/Rain
+        var heaviness = ""
+        if maxRain.cast.value > 50.0 {
+            heaviness = NSLocalizedString("violent rain", comment: "above 50.0 mm/h")
+        } else if maxRain.cast.value > 7.6 {
+            heaviness = NSLocalizedString("heavy rain", comment: "above 7.6 mm/h")
+        } else if maxRain.cast.value > 2.5 {
+            heaviness = NSLocalizedString("moderate rain", comment: "above 2.5 mm/h")
+        } else if maxRain.cast.value > 0.5 {
+            heaviness = NSLocalizedString("light rain", comment: "above 0.5 mm/h")
+        } else if maxRain.cast.value > 0.0 {
+            heaviness = NSLocalizedString("a drizzle", comment: "between 0.0 and 0.5 mm/h")
+        }
+        if rainNow {
+            // it's raining now
+            var duration = ""
+            for c in nowCasts! {
+                // find out when the rain stops
+                if c.cast.value > 0.0 {
+                    // still raining
+                    duration = c.minutesFromNow()
+                } else {
+                    // stopped raining
+                    break
+                }
+            }
+            let r = String.localizedStringWithFormat(NSLocalizedString("We're having %@ now, but it will end in %@", comment: "raining now"),
+                                                     heaviness,
+                                                     duration)
+            return r
+        } else {
+            // it's not raining, now, but it will in a while
+            var rainStarts = ""
+            var rainEnds = ""
+            var rainFlag: Bool = false
+            for c in nowCasts! {
+                // find out when the rain stops
+                if c.cast.value == 0.0 {
+                    // not raining
+                    if rainFlag == true {
+                        // this is the end of the rain
+                        rainEnds = c.minutesFromNow()
+                        rainFlag = false
+                    } else {
+                        continue
+                    }
+                } else {
+                    // it rains 
+                    if rainFlag == true {
+                        // it's continuing to rain
+                        continue
+                    } else {
+                        // this is the start of the rain
+                        rainStarts = c.minutesFromNow()
+                        rainFlag = true
+                    }
+                    
+                }
+            }
+            var r = String.localizedStringWithFormat(NSLocalizedString("We will have %@ in %@ (peak: %@), ", comment: "raining now"),
+                                                     heaviness,
+                                                     rainStarts,
+                                                     peak
+                                                     )
+            var endString = ""
+            if rainEnds == "" {
+                // it will rain for as long as we have data
+                rainEnds = nowCasts!.last!.minutesFromNow()
+                endString = NSLocalizedString("and it will continue for at least %@", comment: "continues beyond data")
+            } else {
+                endString = NSLocalizedString("which ends in %@", comment: "ends at this duration")
+            }
+            r += String.localizedStringWithFormat(endString, rainEnds)
+            return r
+            
+        }
+        
+        
 
         var r = NSLocalizedString("It's going to be on and off", comment:"")
         r.appendContentsOf(peak)
